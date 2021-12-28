@@ -113,19 +113,30 @@ extension AnyParameter {
 
 public extension AnyParameter {
 
-    func applyConstraint() {
+    /// applyConstraint
+    ///
+    /// Apply the constraint - pass setDefault to true when called from parameter init,
+    /// or if the UI let the user reset a parameter ( by clicking slider with control key for example )
+    func applyConstraint(setDefault: Bool = false, to value: inout Double) {
         guard let constraint = constraint else { return }
-        if let min = constraint.doubleMin, doubleValue < min {
-            doubleValue = min
+        
+        if setDefault, let defaultValue = constraint.defaultValue {
+            value = defaultValue
         }
-        if let max = constraint.doubleMax, doubleValue > max {
-            doubleValue = max
+        if let min = constraint.doubleMin, value < min {
+            value = min
+        }
+        if let max = constraint.doubleMax, value > max {
+            value = max
         }
         if let granularity = constraint.granularity, granularity > 0 {
             
         }
     }
 
+    func applyConstraint(setDefault: Bool = false) {
+        applyConstraint(setDefault: setDefault, to: &doubleValue)
+    }
 }
 
 // MARK: - Parameter Commons

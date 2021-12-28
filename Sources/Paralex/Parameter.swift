@@ -83,18 +83,26 @@ public class Parameter : AnyParameter, ObservableObject {
                 constraint: Constraint? = nil,
                 formatter: Formatter? = nil) {
         self.identifier = identifier
-        self.constraint = constraint
+        // Use passed constraint, or default identifier constraint if nil
+        self.constraint = constraint ?? identifier.constraint
         self.formatter = formatter
         self.type = type
         self.context = context
         isActive = true
         innerValue = doubleValue ?? constraint?.defaultValue ?? 0
         self.doubleValue = constraint?.apply(to: innerValue) ?? innerValue
+        self.applyConstraint(setDefault: true)
     }
     
     var boolValue: Bool { doubleValue > 0 }
     var intValue: Int { Int(doubleValue) }
     
+    public func offsetValue(by offset: Double) {
+        var newValue = doubleValue + offset
+        applyConstraint(to: &newValue)
+        print("Constrained : \(newValue)")
+        doubleValue = newValue
+    }
 }
 
 
