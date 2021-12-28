@@ -8,22 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BC00504E2776204C00CA0583 /* Paralex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0050432776204C00CA0583 /* Paralex.framework */; };
-		BC0050B827773CE600CA0583 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050A827773CE600CA0583 /* Parameter.swift */; };
-		BC0050B927773CE600CA0583 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050A927773CE600CA0583 /* Item.swift */; };
-		BC0050BA27773CE600CA0583 /* TypedParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050AA27773CE600CA0583 /* TypedParameters.swift */; };
-		BC0050BB27773CE600CA0583 /* ParameterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050AB27773CE600CA0583 /* ParameterType.swift */; };
-		BC0050BC27773CE600CA0583 /* IdentifierTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050AC27773CE600CA0583 /* IdentifierTable.swift */; };
-		BC0050BD27773CE600CA0583 /* AnyParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050AD27773CE600CA0583 /* AnyParameter.swift */; };
-		BC0050BE27773CE600CA0583 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050AE27773CE600CA0583 /* Controller.swift */; };
-		BC0050BF27773CE700CA0583 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050AF27773CE600CA0583 /* Container.swift */; };
-		BC0050C027773CE700CA0583 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050B027773CE600CA0583 /* Graph.swift */; };
-		BC0050C127773CE700CA0583 /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050B127773CE600CA0583 /* BaseProtocols.swift */; };
-		BC0050C227773CE700CA0583 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050B227773CE600CA0583 /* Context.swift */; };
-		BC0050C327773CE700CA0583 /* Paralex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050B327773CE600CA0583 /* Paralex.swift */; };
-		BC0050C427773CE700CA0583 /* ParametersGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050B427773CE600CA0583 /* ParametersGroup.swift */; };
-		BC0050C527773CE700CA0583 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050B527773CE600CA0583 /* Constraint.swift */; };
-		BC0050C627773CE700CA0583 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050B627773CE600CA0583 /* Formatters.swift */; };
-		BC0050C727773CE700CA0583 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050B727773CE600CA0583 /* Identifier.swift */; };
 		BC0050D527773DA500CA0583 /* IdentifierTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050C927773D7900CA0583 /* IdentifierTable.swift */; };
 		BC0050D627773DA500CA0583 /* ParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050CB27773D7900CA0583 /* ParameterTests.swift */; };
 		BC0050D727773DA500CA0583 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050C827773D7900CA0583 /* Graph.swift */; };
@@ -33,7 +17,23 @@
 		BC0050DB27773DA500CA0583 /* TestContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050CC27773D7900CA0583 /* TestContext.swift */; };
 		BC0050DC27773DA500CA0583 /* TestIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050CF27773D7900CA0583 /* TestIdentifier.swift */; };
 		BC0050DE2778CA9E00CA0583 /* TestParameterGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050DD2778CA9E00CA0583 /* TestParameterGroup.swift */; };
-		BC00511B277A8B6600CA0583 /* LabelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00511A277A8B6600CA0583 /* LabelInfo.swift */; };
+		BC00513B277BBCC400CA0583 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512A277BBCC400CA0583 /* Parameter.swift */; };
+		BC00513C277BBCC400CA0583 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512B277BBCC400CA0583 /* Item.swift */; };
+		BC00513D277BBCC400CA0583 /* TypedParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512C277BBCC400CA0583 /* TypedParameters.swift */; };
+		BC00513E277BBCC400CA0583 /* ParameterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512D277BBCC400CA0583 /* ParameterType.swift */; };
+		BC00513F277BBCC400CA0583 /* IdentifierTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512E277BBCC400CA0583 /* IdentifierTable.swift */; };
+		BC005140277BBCC400CA0583 /* AnyParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512F277BBCC400CA0583 /* AnyParameter.swift */; };
+		BC005141277BBCC400CA0583 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005130277BBCC400CA0583 /* Controller.swift */; };
+		BC005142277BBCC400CA0583 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005131277BBCC400CA0583 /* Container.swift */; };
+		BC005143277BBCC400CA0583 /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005132277BBCC400CA0583 /* BaseProtocols.swift */; };
+		BC005144277BBCC400CA0583 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005133277BBCC400CA0583 /* Context.swift */; };
+		BC005145277BBCC400CA0583 /* LabelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005134277BBCC400CA0583 /* LabelInfo.swift */; };
+		BC005146277BBCC400CA0583 /* Paralex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005135277BBCC400CA0583 /* Paralex.swift */; };
+		BC005147277BBCC400CA0583 /* GraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005136277BBCC400CA0583 /* GraphNode.swift */; };
+		BC005148277BBCC400CA0583 /* ParametersGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005137277BBCC400CA0583 /* ParametersGroup.swift */; };
+		BC005149277BBCC400CA0583 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005138277BBCC400CA0583 /* Constraint.swift */; };
+		BC00514A277BBCC400CA0583 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005139277BBCC400CA0583 /* Formatters.swift */; };
+		BC00514B277BBCC500CA0583 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00513A277BBCC400CA0583 /* Identifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,22 +52,6 @@
 		BC00505D2776238D00CA0583 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BC00506D2776238D00CA0583 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		BC00506E2776238E00CA0583 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BC0050A827773CE600CA0583 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
-		BC0050A927773CE600CA0583 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		BC0050AA27773CE600CA0583 /* TypedParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedParameters.swift; sourceTree = "<group>"; };
-		BC0050AB27773CE600CA0583 /* ParameterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterType.swift; sourceTree = "<group>"; };
-		BC0050AC27773CE600CA0583 /* IdentifierTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierTable.swift; sourceTree = "<group>"; };
-		BC0050AD27773CE600CA0583 /* AnyParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyParameter.swift; sourceTree = "<group>"; };
-		BC0050AE27773CE600CA0583 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
-		BC0050AF27773CE600CA0583 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		BC0050B027773CE600CA0583 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
-		BC0050B127773CE600CA0583 /* BaseProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
-		BC0050B227773CE600CA0583 /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
-		BC0050B327773CE600CA0583 /* Paralex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paralex.swift; sourceTree = "<group>"; };
-		BC0050B427773CE600CA0583 /* ParametersGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParametersGroup.swift; sourceTree = "<group>"; };
-		BC0050B527773CE600CA0583 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
-		BC0050B627773CE600CA0583 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
-		BC0050B727773CE600CA0583 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		BC0050C827773D7900CA0583 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		BC0050C927773D7900CA0583 /* IdentifierTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTable.swift; sourceTree = "<group>"; };
 		BC0050CA27773D7900CA0583 /* FormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
@@ -79,7 +63,23 @@
 		BC0050D227773D8900CA0583 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ParametersAbbreviations.strings; sourceTree = "<group>"; };
 		BC0050D427773D8900CA0583 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ParameterNames.strings; sourceTree = "<group>"; };
 		BC0050DD2778CA9E00CA0583 /* TestParameterGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestParameterGroup.swift; sourceTree = "<group>"; };
-		BC00511A277A8B6600CA0583 /* LabelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelInfo.swift; sourceTree = "<group>"; };
+		BC00512A277BBCC400CA0583 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		BC00512B277BBCC400CA0583 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		BC00512C277BBCC400CA0583 /* TypedParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedParameters.swift; sourceTree = "<group>"; };
+		BC00512D277BBCC400CA0583 /* ParameterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterType.swift; sourceTree = "<group>"; };
+		BC00512E277BBCC400CA0583 /* IdentifierTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierTable.swift; sourceTree = "<group>"; };
+		BC00512F277BBCC400CA0583 /* AnyParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyParameter.swift; sourceTree = "<group>"; };
+		BC005130277BBCC400CA0583 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		BC005131277BBCC400CA0583 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		BC005132277BBCC400CA0583 /* BaseProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
+		BC005133277BBCC400CA0583 /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		BC005134277BBCC400CA0583 /* LabelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelInfo.swift; sourceTree = "<group>"; };
+		BC005135277BBCC400CA0583 /* Paralex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paralex.swift; sourceTree = "<group>"; };
+		BC005136277BBCC400CA0583 /* GraphNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphNode.swift; sourceTree = "<group>"; };
+		BC005137277BBCC400CA0583 /* ParametersGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParametersGroup.swift; sourceTree = "<group>"; };
+		BC005138277BBCC400CA0583 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		BC005139277BBCC400CA0583 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		BC00513A277BBCC400CA0583 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 				BC00505D2776238D00CA0583 /* LICENSE */,
 				BC00506D2776238D00CA0583 /* Package.swift */,
 				BC00506E2776238E00CA0583 /* README.md */,
-				BC00506F2776238E00CA0583 /* Sources */,
+				BC005128277BBCC400CA0583 /* Sources */,
 				BC0050512776204C00CA0583 /* ParalexTests */,
 				BC0050442776204C00CA0583 /* Products */,
 			);
@@ -139,38 +139,6 @@
 			path = ParalexTests;
 			sourceTree = "<group>";
 		};
-		BC00506F2776238E00CA0583 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				BC0050A727773CE600CA0583 /* Paralex */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		BC0050A727773CE600CA0583 /* Paralex */ = {
-			isa = PBXGroup;
-			children = (
-				BC0050A827773CE600CA0583 /* Parameter.swift */,
-				BC0050A927773CE600CA0583 /* Item.swift */,
-				BC0050AA27773CE600CA0583 /* TypedParameters.swift */,
-				BC0050AB27773CE600CA0583 /* ParameterType.swift */,
-				BC0050AC27773CE600CA0583 /* IdentifierTable.swift */,
-				BC0050AD27773CE600CA0583 /* AnyParameter.swift */,
-				BC0050AE27773CE600CA0583 /* Controller.swift */,
-				BC0050AF27773CE600CA0583 /* Container.swift */,
-				BC0050B027773CE600CA0583 /* Graph.swift */,
-				BC0050B127773CE600CA0583 /* BaseProtocols.swift */,
-				BC0050B227773CE600CA0583 /* Context.swift */,
-				BC00511A277A8B6600CA0583 /* LabelInfo.swift */,
-				BC0050B327773CE600CA0583 /* Paralex.swift */,
-				BC0050B427773CE600CA0583 /* ParametersGroup.swift */,
-				BC0050B527773CE600CA0583 /* Constraint.swift */,
-				BC0050B627773CE600CA0583 /* Formatters.swift */,
-				BC0050B727773CE600CA0583 /* Identifier.swift */,
-			);
-			path = Paralex;
-			sourceTree = "<group>";
-		};
 		BC0050D027773D8900CA0583 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +146,38 @@
 				BC0050D327773D8900CA0583 /* ParameterNames.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BC005128277BBCC400CA0583 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BC005129277BBCC400CA0583 /* Paralex */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BC005129277BBCC400CA0583 /* Paralex */ = {
+			isa = PBXGroup;
+			children = (
+				BC00512A277BBCC400CA0583 /* Parameter.swift */,
+				BC00512B277BBCC400CA0583 /* Item.swift */,
+				BC00512C277BBCC400CA0583 /* TypedParameters.swift */,
+				BC00512D277BBCC400CA0583 /* ParameterType.swift */,
+				BC00512E277BBCC400CA0583 /* IdentifierTable.swift */,
+				BC00512F277BBCC400CA0583 /* AnyParameter.swift */,
+				BC005130277BBCC400CA0583 /* Controller.swift */,
+				BC005131277BBCC400CA0583 /* Container.swift */,
+				BC005132277BBCC400CA0583 /* BaseProtocols.swift */,
+				BC005133277BBCC400CA0583 /* Context.swift */,
+				BC005134277BBCC400CA0583 /* LabelInfo.swift */,
+				BC005135277BBCC400CA0583 /* Paralex.swift */,
+				BC005136277BBCC400CA0583 /* GraphNode.swift */,
+				BC005137277BBCC400CA0583 /* ParametersGroup.swift */,
+				BC005138277BBCC400CA0583 /* Constraint.swift */,
+				BC005139277BBCC400CA0583 /* Formatters.swift */,
+				BC00513A277BBCC400CA0583 /* Identifier.swift */,
+			);
+			path = Paralex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,23 +288,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC0050B927773CE600CA0583 /* Item.swift in Sources */,
-				BC0050BB27773CE600CA0583 /* ParameterType.swift in Sources */,
-				BC0050C527773CE700CA0583 /* Constraint.swift in Sources */,
-				BC0050C627773CE700CA0583 /* Formatters.swift in Sources */,
-				BC0050BD27773CE600CA0583 /* AnyParameter.swift in Sources */,
-				BC0050B827773CE600CA0583 /* Parameter.swift in Sources */,
-				BC0050C227773CE700CA0583 /* Context.swift in Sources */,
-				BC0050C127773CE700CA0583 /* BaseProtocols.swift in Sources */,
-				BC0050BA27773CE600CA0583 /* TypedParameters.swift in Sources */,
-				BC0050BF27773CE700CA0583 /* Container.swift in Sources */,
-				BC0050C027773CE700CA0583 /* Graph.swift in Sources */,
-				BC0050C327773CE700CA0583 /* Paralex.swift in Sources */,
-				BC0050C427773CE700CA0583 /* ParametersGroup.swift in Sources */,
-				BC0050BC27773CE600CA0583 /* IdentifierTable.swift in Sources */,
-				BC00511B277A8B6600CA0583 /* LabelInfo.swift in Sources */,
-				BC0050C727773CE700CA0583 /* Identifier.swift in Sources */,
-				BC0050BE27773CE600CA0583 /* Controller.swift in Sources */,
+				BC00513C277BBCC400CA0583 /* Item.swift in Sources */,
+				BC00513E277BBCC400CA0583 /* ParameterType.swift in Sources */,
+				BC00514A277BBCC400CA0583 /* Formatters.swift in Sources */,
+				BC005140277BBCC400CA0583 /* AnyParameter.swift in Sources */,
+				BC005149277BBCC400CA0583 /* Constraint.swift in Sources */,
+				BC005144277BBCC400CA0583 /* Context.swift in Sources */,
+				BC00513B277BBCC400CA0583 /* Parameter.swift in Sources */,
+				BC005148277BBCC400CA0583 /* ParametersGroup.swift in Sources */,
+				BC00513D277BBCC400CA0583 /* TypedParameters.swift in Sources */,
+				BC005142277BBCC400CA0583 /* Container.swift in Sources */,
+				BC00513F277BBCC400CA0583 /* IdentifierTable.swift in Sources */,
+				BC005147277BBCC400CA0583 /* GraphNode.swift in Sources */,
+				BC005141277BBCC400CA0583 /* Controller.swift in Sources */,
+				BC005146277BBCC400CA0583 /* Paralex.swift in Sources */,
+				BC00514B277BBCC500CA0583 /* Identifier.swift in Sources */,
+				BC005145277BBCC400CA0583 /* LabelInfo.swift in Sources */,
+				BC005143277BBCC400CA0583 /* BaseProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

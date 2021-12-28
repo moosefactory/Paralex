@@ -18,7 +18,7 @@ final class ParameterTests: XCTestCase {
         
         testSection("1 - Test BoolParameter") {
             
-            let param = BoolParameter(Identifier(rawValue: "myBool"))
+            let param = BoolParameter(Identifier(rawValue: "myBool"), in: context)
             XCTAssert(param.value == false)
             let cancellable = param.$value.sink { completion in
                 print("Parameter \(param.log) changed")
@@ -37,7 +37,7 @@ final class ParameterTests: XCTestCase {
         
         testSection("Test IntParameter") {
             
-            let param = IntParameter(Identifier(rawValue: "myInt", name: "Integer"), value: 3)
+            let param = IntParameter(Identifier(rawValue: "myInt"), in: context, value: 3)
             XCTAssert(param.value == 3)
             let cancellable = param.$value.sink { completion in
                 print("Parameter \(param.log) changed")
@@ -68,7 +68,7 @@ final class ParameterTests: XCTestCase {
         
         testSection("Test DoubleParameter") {
             
-            let param = IntParameter(Identifier(rawValue: "myDouble", name: "Integer"), value: 3)
+            let param = IntParameter(Identifier(rawValue: "myDouble"), in: context, value: 3)
             XCTAssert(param.value == 3)
             let cancellable = param.$value.sink { completion in
                 print("Parameter \(param.log) changed")

@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct LabelInfo {
+public struct LabelInfo: Loggable {
     
     public private(set) var slug: String
     
@@ -76,5 +76,10 @@ public struct LabelInfo {
         let index = min(symbolIndex, symbols.count - 1)
         let stringIndex = symbols.index(symbols.startIndex, offsetBy: index)
         return String(symbols[stringIndex])
+    }
+
+    public var log: String {
+        var components = [slug, name, shortName, abbreviation, symbols ?? "", symbol ?? ""]
+        return components.joined(separator: "\t")
     }
 }

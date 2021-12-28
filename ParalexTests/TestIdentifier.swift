@@ -45,22 +45,5 @@ final class TestIdentifier: XCTestCase {
         }
     }
     
-    func test_03_Label() throws {
-        testSection("3 - Test identifier with label info") {
-            
-            var identifier = Identifier(rawValue: "labeledIdentifier", role: .label)
-           
-            
-            identifier.label = identifier.makeLabel(name: "Long Name", shortName: "Short", abbreviation: "P.", symbols: , symbolIndex: 0)
-            
-            print(identifier.log)
-            
-            print("Symbol 0 : \(identifier.symbol)")
-            identifier.label?.symbolIndex = 1
-            print("Symbol 1 : \(identifier.symbol)")
-            identifier.label?.symbolIndex = 2
-            print("Symbol 2 : \(identifier.symbol)")
-        }
-    }
 }
 

@@ -29,7 +29,7 @@ final class GraphTests: XCTestCase {
         ])
         
         let transport_params = try transport_table.makeParameters(in: context)
-        let machine_params = try machine_table.makeParameters()
+        let machine_params = try machine_table.makeParameters(in: context)
 
         let transport_group = ParametersGroup(identifier: transportId, parameters: transport_params)
         let machineGroup = ParametersGroup(identifier: machineId, parameters: machine_params)

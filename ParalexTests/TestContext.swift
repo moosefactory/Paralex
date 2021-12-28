@@ -10,6 +10,8 @@ import AppKit
 
 import Paralex
 
+var context: Context = Context(name: "TestMachine")
+
 extension Identifier {
     static let exampleLabel = Identifier(rawValue: "myLabel", role: .label)
     static let exampleBool = Identifier(rawValue: "myBool", role: .parameter, type: .bool)
@@ -24,7 +26,6 @@ extension Identifier {
 
 struct TestMachine{
     
-    var context: Context = Context(name: "TestMachine")
 //    var tree: NSTreeNode
     
     var localizedNamesFile: String? { "ParameterNames" }
@@ -58,4 +59,22 @@ struct TestMachine{
         .startCommand,
         .stopCommand
     ]
+    
+    
+    func test_01_LabelInfo() throws {
+        testSection("3 - Test identifier with label info") {
+            
+            var identifier = Identifier(rawValue: "labeledIdentifier", role: .label)
+           
+            var labelInfo = context.localizedLabel(for: identifier)
+
+            print(labelInfo.log)
+            
+            print("Symbol 0 : \(labelInfo.symbol)")
+            labelInfo.symbolIndex = 1
+            print("Symbol 1 : \(labelInfo.symbol)")
+            labelInfo.symbolIndex = 2
+            print("Symbol 2 : \(labelInfo.symbol)")
+        }
+    }
 }

@@ -26,7 +26,7 @@ final class IdentifierTableTests: XCTestCase {
         print(table.identifiers.log)
         printSection("Parameters Table Log")
         
-        let parameters = table.identifiers.compactMap( { try? $0.makeParameter() } )
+        let parameters = table.identifiers.compactMap( { try? $0.makeParameter(in: context) } )
         print(parameters.log)
         
         printSection("Apply Values to Parameters Table Log")
