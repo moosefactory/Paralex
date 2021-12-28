@@ -57,9 +57,9 @@ public class Constraint: Loggable {
         if let max = doubleMax, value > max {
             value = max
         }
-        if let g = granularity {
-//            value =  value // TODO
-        }
+//        if let g = granularity {
+//
+//        }
         return value
     }
     

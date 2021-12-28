@@ -99,7 +99,7 @@ public protocol AnyParameter: AnyObject, ParameterBase, Identified {
 extension AnyParameter {
     
     /// The integer value
-    var double: Double { get { doubleValue } set { doubleValue = newValue } }
+    public var double: Double { get { doubleValue } set { doubleValue = newValue } }
 
     /// The integer value
     public var int: Int { get { Int(doubleValue) } set { doubleValue = Double(newValue) } }

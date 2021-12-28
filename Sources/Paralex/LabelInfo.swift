@@ -79,7 +79,7 @@ public struct LabelInfo: Loggable {
     }
 
     public var log: String {
-        var components = [slug, name, shortName, abbreviation, symbols ?? "", symbol ?? ""]
+        let components = [slug, name, shortName, abbreviation, symbols ?? "", symbol ?? ""]
         return components.joined(separator: "\t")
     }
 }
