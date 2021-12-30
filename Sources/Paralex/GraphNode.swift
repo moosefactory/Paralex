@@ -43,6 +43,14 @@ extension GraphNode {
     public var symbol: String? {
         context?.symbol(for: identifier)
     }
+    
+    public var root: GroupGraphNode {
+        var out: GraphNode = self
+        while let parent = out.parent {
+            out = parent
+        }
+        return out as! GroupGraphNode
+    }
 }
 
 public extension GraphNode {
@@ -104,11 +112,9 @@ public class ParameterGraphNode: GraphNode, ObservableObject {
     }
 }
 
-public class GroupGraphNode: GraphNode {
+open class GroupGraphNode: GraphNode {
     
     public var context: Context?
-    
-    public var name: String?
     
     public var symbols: String?
     
@@ -121,8 +127,8 @@ public class GroupGraphNode: GraphNode {
         group.identifier
     }
     
-    var group: ParametersGroup
-    var child: [GraphNode] = []
+    public var group: Group
+    public var child: [GraphNode] = []
     
     public subscript (identifier: Identifier) -> GraphNode? {
         return child.first(where: { $0.identifier == identifier })
@@ -150,7 +156,9 @@ public class GroupGraphNode: GraphNode {
     
     // MARK: Initialisation
     
-    public init(group: ParametersGroup, in parent: GroupGraphNode? = nil) {
+    public init(group: Group,
+                in parent: GroupGraphNode? = nil,
+                name: String? = nil) {
         self.group = group
         self.parent = parent
         var child = [GraphNode]()
@@ -190,7 +198,7 @@ public class Graph {
     
     public var root: GroupGraphNode
     
-    init(rootGroup: ParametersGroup) {
+    init(rootGroup: Group) {
         root = GroupGraphNode(group: rootGroup, in: nil)
     }
 }

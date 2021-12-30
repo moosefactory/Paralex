@@ -20,7 +20,7 @@ final class ParameterTests: XCTestCase {
             
             let param = BoolParameter(Identifier(rawValue: "myBool"), in: context)
             XCTAssert(param.value == false)
-            let cancellable = param.$value.sink { completion in
+            let _ = param.$value.sink { completion in
                 print("Parameter \(param.log) changed")
             } receiveValue: { value in
                 print("\(param.log) Parameter $value will change to \(value)")

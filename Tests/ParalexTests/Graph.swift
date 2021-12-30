@@ -31,11 +31,11 @@ final class GraphTests: XCTestCase {
         let transport_params = try transport_table.makeParameters(in: context)
         let machine_params = try machine_table.makeParameters(in: context)
 
-        let transport_group = ParametersGroup(identifier: transportId, parameters: transport_params)
-        let machineGroup = ParametersGroup(identifier: machineId, parameters: machine_params)
+        let transport_group = Group(identifier: transportId, parameters: transport_params)
+        let machineGroup = Group(identifier: machineId, parameters: machine_params)
         
         let graph = Graph(rootGroup: machineGroup)
-        let transportNode = GroupGraphNode(group: transport_group, in: graph.root)
+        let _ = GroupGraphNode(group: transport_group, in: graph.root)
         
         printSection("Graph Test 1 - log")
         print(graph.log)

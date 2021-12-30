@@ -8,15 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BC00504E2776204C00CA0583 /* Paralex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0050432776204C00CA0583 /* Paralex.framework */; };
-		BC0050D527773DA500CA0583 /* IdentifierTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050C927773D7900CA0583 /* IdentifierTable.swift */; };
-		BC0050D627773DA500CA0583 /* ParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050CB27773D7900CA0583 /* ParameterTests.swift */; };
-		BC0050D727773DA500CA0583 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050C827773D7900CA0583 /* Graph.swift */; };
-		BC0050D827773DA500CA0583 /* ParalexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050CD27773D7900CA0583 /* ParalexTests.swift */; };
-		BC0050D927773DA500CA0583 /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050CE27773D7900CA0583 /* ContextTests.swift */; };
-		BC0050DA27773DA500CA0583 /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050CA27773D7900CA0583 /* FormatterTests.swift */; };
-		BC0050DB27773DA500CA0583 /* TestContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050CC27773D7900CA0583 /* TestContext.swift */; };
-		BC0050DC27773DA500CA0583 /* TestIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050CF27773D7900CA0583 /* TestIdentifier.swift */; };
-		BC0050DE2778CA9E00CA0583 /* TestParameterGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0050DD2778CA9E00CA0583 /* TestParameterGroup.swift */; };
 		BC00513B277BBCC400CA0583 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512A277BBCC400CA0583 /* Parameter.swift */; };
 		BC00513C277BBCC400CA0583 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512B277BBCC400CA0583 /* Item.swift */; };
 		BC00513D277BBCC400CA0583 /* TypedParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512C277BBCC400CA0583 /* TypedParameters.swift */; };
@@ -30,10 +21,21 @@
 		BC005145277BBCC400CA0583 /* LabelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005134277BBCC400CA0583 /* LabelInfo.swift */; };
 		BC005146277BBCC400CA0583 /* Paralex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005135277BBCC400CA0583 /* Paralex.swift */; };
 		BC005147277BBCC400CA0583 /* GraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005136277BBCC400CA0583 /* GraphNode.swift */; };
-		BC005148277BBCC400CA0583 /* ParametersGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005137277BBCC400CA0583 /* ParametersGroup.swift */; };
+		BC005148277BBCC400CA0583 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005137277BBCC400CA0583 /* Group.swift */; };
 		BC005149277BBCC400CA0583 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005138277BBCC400CA0583 /* Constraint.swift */; };
 		BC00514A277BBCC400CA0583 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005139277BBCC400CA0583 /* Formatters.swift */; };
 		BC00514B277BBCC500CA0583 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00513A277BBCC400CA0583 /* Identifier.swift */; };
+		BC7F887B277DC5A30057FA6B /* ParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F886D277DC5A30057FA6B /* ParameterTests.swift */; };
+		BC7F887C277DC5A30057FA6B /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F886E277DC5A30057FA6B /* ContextTests.swift */; };
+		BC7F887D277DC5A30057FA6B /* IdentifierTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F886F277DC5A30057FA6B /* IdentifierTable.swift */; };
+		BC7F887E277DC5A30057FA6B /* ParametersAbbreviations.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC7F8871277DC5A30057FA6B /* ParametersAbbreviations.strings */; };
+		BC7F887F277DC5A30057FA6B /* ParameterNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC7F8873277DC5A30057FA6B /* ParameterNames.strings */; };
+		BC7F8880277DC5A30057FA6B /* TestContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8875277DC5A30057FA6B /* TestContext.swift */; };
+		BC7F8881277DC5A30057FA6B /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8876277DC5A30057FA6B /* Graph.swift */; };
+		BC7F8882277DC5A30057FA6B /* TestIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8877277DC5A30057FA6B /* TestIdentifier.swift */; };
+		BC7F8883277DC5A30057FA6B /* ParalexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8878277DC5A30057FA6B /* ParalexTests.swift */; };
+		BC7F8884277DC5A30057FA6B /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8879277DC5A30057FA6B /* FormatterTests.swift */; };
+		BC7F8885277DC5A30057FA6B /* TestParameterGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F887A277DC5A30057FA6B /* TestParameterGroup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,17 +54,6 @@
 		BC00505D2776238D00CA0583 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BC00506D2776238D00CA0583 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		BC00506E2776238E00CA0583 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BC0050C827773D7900CA0583 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
-		BC0050C927773D7900CA0583 /* IdentifierTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTable.swift; sourceTree = "<group>"; };
-		BC0050CA27773D7900CA0583 /* FormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
-		BC0050CB27773D7900CA0583 /* ParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterTests.swift; sourceTree = "<group>"; };
-		BC0050CC27773D7900CA0583 /* TestContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContext.swift; sourceTree = "<group>"; };
-		BC0050CD27773D7900CA0583 /* ParalexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParalexTests.swift; sourceTree = "<group>"; };
-		BC0050CE27773D7900CA0583 /* ContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
-		BC0050CF27773D7900CA0583 /* TestIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIdentifier.swift; sourceTree = "<group>"; };
-		BC0050D227773D8900CA0583 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ParametersAbbreviations.strings; sourceTree = "<group>"; };
-		BC0050D427773D8900CA0583 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ParameterNames.strings; sourceTree = "<group>"; };
-		BC0050DD2778CA9E00CA0583 /* TestParameterGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestParameterGroup.swift; sourceTree = "<group>"; };
 		BC00512A277BBCC400CA0583 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		BC00512B277BBCC400CA0583 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		BC00512C277BBCC400CA0583 /* TypedParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedParameters.swift; sourceTree = "<group>"; };
@@ -76,10 +67,21 @@
 		BC005134277BBCC400CA0583 /* LabelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelInfo.swift; sourceTree = "<group>"; };
 		BC005135277BBCC400CA0583 /* Paralex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paralex.swift; sourceTree = "<group>"; };
 		BC005136277BBCC400CA0583 /* GraphNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphNode.swift; sourceTree = "<group>"; };
-		BC005137277BBCC400CA0583 /* ParametersGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParametersGroup.swift; sourceTree = "<group>"; };
+		BC005137277BBCC400CA0583 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		BC005138277BBCC400CA0583 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
 		BC005139277BBCC400CA0583 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		BC00513A277BBCC400CA0583 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		BC7F886D277DC5A30057FA6B /* ParameterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterTests.swift; sourceTree = "<group>"; };
+		BC7F886E277DC5A30057FA6B /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
+		BC7F886F277DC5A30057FA6B /* IdentifierTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierTable.swift; sourceTree = "<group>"; };
+		BC7F8872277DC5A30057FA6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ParametersAbbreviations.strings; sourceTree = "<group>"; };
+		BC7F8874277DC5A30057FA6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ParameterNames.strings; sourceTree = "<group>"; };
+		BC7F8875277DC5A30057FA6B /* TestContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestContext.swift; sourceTree = "<group>"; };
+		BC7F8876277DC5A30057FA6B /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		BC7F8877277DC5A30057FA6B /* TestIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestIdentifier.swift; sourceTree = "<group>"; };
+		BC7F8878277DC5A30057FA6B /* ParalexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParalexTests.swift; sourceTree = "<group>"; };
+		BC7F8879277DC5A30057FA6B /* FormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
+		BC7F887A277DC5A30057FA6B /* TestParameterGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestParameterGroup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +110,7 @@
 				BC00506D2776238D00CA0583 /* Package.swift */,
 				BC00506E2776238E00CA0583 /* README.md */,
 				BC005128277BBCC400CA0583 /* Sources */,
-				BC0050512776204C00CA0583 /* ParalexTests */,
+				BC7F886B277DC5A30057FA6B /* Tests */,
 				BC0050442776204C00CA0583 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,32 +122,6 @@
 				BC00504D2776204C00CA0583 /* ParalexTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		BC0050512776204C00CA0583 /* ParalexTests */ = {
-			isa = PBXGroup;
-			children = (
-				BC0050CE27773D7900CA0583 /* ContextTests.swift */,
-				BC0050CA27773D7900CA0583 /* FormatterTests.swift */,
-				BC0050C827773D7900CA0583 /* Graph.swift */,
-				BC0050C927773D7900CA0583 /* IdentifierTable.swift */,
-				BC0050CD27773D7900CA0583 /* ParalexTests.swift */,
-				BC0050CB27773D7900CA0583 /* ParameterTests.swift */,
-				BC0050CC27773D7900CA0583 /* TestContext.swift */,
-				BC0050CF27773D7900CA0583 /* TestIdentifier.swift */,
-				BC0050DD2778CA9E00CA0583 /* TestParameterGroup.swift */,
-				BC0050D027773D8900CA0583 /* Resources */,
-			);
-			path = ParalexTests;
-			sourceTree = "<group>";
-		};
-		BC0050D027773D8900CA0583 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BC0050D127773D8900CA0583 /* ParametersAbbreviations.strings */,
-				BC0050D327773D8900CA0583 /* ParameterNames.strings */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		BC005128277BBCC400CA0583 /* Sources */ = {
@@ -172,12 +148,46 @@
 				BC005134277BBCC400CA0583 /* LabelInfo.swift */,
 				BC005135277BBCC400CA0583 /* Paralex.swift */,
 				BC005136277BBCC400CA0583 /* GraphNode.swift */,
-				BC005137277BBCC400CA0583 /* ParametersGroup.swift */,
+				BC005137277BBCC400CA0583 /* Group.swift */,
 				BC005138277BBCC400CA0583 /* Constraint.swift */,
 				BC005139277BBCC400CA0583 /* Formatters.swift */,
 				BC00513A277BBCC400CA0583 /* Identifier.swift */,
 			);
 			path = Paralex;
+			sourceTree = "<group>";
+		};
+		BC7F886B277DC5A30057FA6B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BC7F886C277DC5A30057FA6B /* ParalexTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		BC7F886C277DC5A30057FA6B /* ParalexTests */ = {
+			isa = PBXGroup;
+			children = (
+				BC7F886D277DC5A30057FA6B /* ParameterTests.swift */,
+				BC7F886E277DC5A30057FA6B /* ContextTests.swift */,
+				BC7F886F277DC5A30057FA6B /* IdentifierTable.swift */,
+				BC7F8870277DC5A30057FA6B /* Resources */,
+				BC7F8875277DC5A30057FA6B /* TestContext.swift */,
+				BC7F8876277DC5A30057FA6B /* Graph.swift */,
+				BC7F8877277DC5A30057FA6B /* TestIdentifier.swift */,
+				BC7F8878277DC5A30057FA6B /* ParalexTests.swift */,
+				BC7F8879277DC5A30057FA6B /* FormatterTests.swift */,
+				BC7F887A277DC5A30057FA6B /* TestParameterGroup.swift */,
+			);
+			path = ParalexTests;
+			sourceTree = "<group>";
+		};
+		BC7F8870277DC5A30057FA6B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BC7F8871277DC5A30057FA6B /* ParametersAbbreviations.strings */,
+				BC7F8873277DC5A30057FA6B /* ParameterNames.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +288,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC7F887E277DC5A30057FA6B /* ParametersAbbreviations.strings in Resources */,
+				BC7F887F277DC5A30057FA6B /* ParameterNames.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +307,7 @@
 				BC005149277BBCC400CA0583 /* Constraint.swift in Sources */,
 				BC005144277BBCC400CA0583 /* Context.swift in Sources */,
 				BC00513B277BBCC400CA0583 /* Parameter.swift in Sources */,
-				BC005148277BBCC400CA0583 /* ParametersGroup.swift in Sources */,
+				BC005148277BBCC400CA0583 /* Group.swift in Sources */,
 				BC00513D277BBCC400CA0583 /* TypedParameters.swift in Sources */,
 				BC005142277BBCC400CA0583 /* Container.swift in Sources */,
 				BC00513F277BBCC400CA0583 /* IdentifierTable.swift in Sources */,
@@ -312,15 +324,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC0050DA27773DA500CA0583 /* FormatterTests.swift in Sources */,
-				BC0050D727773DA500CA0583 /* Graph.swift in Sources */,
-				BC0050DE2778CA9E00CA0583 /* TestParameterGroup.swift in Sources */,
-				BC0050DC27773DA500CA0583 /* TestIdentifier.swift in Sources */,
-				BC0050D827773DA500CA0583 /* ParalexTests.swift in Sources */,
-				BC0050D527773DA500CA0583 /* IdentifierTable.swift in Sources */,
-				BC0050D927773DA500CA0583 /* ContextTests.swift in Sources */,
-				BC0050DB27773DA500CA0583 /* TestContext.swift in Sources */,
-				BC0050D627773DA500CA0583 /* ParameterTests.swift in Sources */,
+				BC7F887B277DC5A30057FA6B /* ParameterTests.swift in Sources */,
+				BC7F8880277DC5A30057FA6B /* TestContext.swift in Sources */,
+				BC7F8885277DC5A30057FA6B /* TestParameterGroup.swift in Sources */,
+				BC7F887C277DC5A30057FA6B /* ContextTests.swift in Sources */,
+				BC7F887D277DC5A30057FA6B /* IdentifierTable.swift in Sources */,
+				BC7F8882277DC5A30057FA6B /* TestIdentifier.swift in Sources */,
+				BC7F8883277DC5A30057FA6B /* ParalexTests.swift in Sources */,
+				BC7F8884277DC5A30057FA6B /* FormatterTests.swift in Sources */,
+				BC7F8881277DC5A30057FA6B /* Graph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,18 +347,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BC0050D127773D8900CA0583 /* ParametersAbbreviations.strings */ = {
+		BC7F8871277DC5A30057FA6B /* ParametersAbbreviations.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BC0050D227773D8900CA0583 /* en */,
+				BC7F8872277DC5A30057FA6B /* en */,
 			);
 			name = ParametersAbbreviations.strings;
 			sourceTree = "<group>";
 		};
-		BC0050D327773D8900CA0583 /* ParameterNames.strings */ = {
+		BC7F8873277DC5A30057FA6B /* ParameterNames.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BC0050D427773D8900CA0583 /* en */,
+				BC7F8874277DC5A30057FA6B /* en */,
 			);
 			name = ParameterNames.strings;
 			sourceTree = "<group>";
