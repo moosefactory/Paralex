@@ -36,6 +36,7 @@
 		BC7F8883277DC5A30057FA6B /* ParalexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8878277DC5A30057FA6B /* ParalexTests.swift */; };
 		BC7F8884277DC5A30057FA6B /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8879277DC5A30057FA6B /* FormatterTests.swift */; };
 		BC7F8885277DC5A30057FA6B /* TestParameterGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F887A277DC5A30057FA6B /* TestParameterGroup.swift */; };
+		BCA736B4277E1E9700935045 /* Identifier+ParameterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA736B3277E1E9700935045 /* Identifier+ParameterFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		BC7F8878277DC5A30057FA6B /* ParalexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParalexTests.swift; sourceTree = "<group>"; };
 		BC7F8879277DC5A30057FA6B /* FormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
 		BC7F887A277DC5A30057FA6B /* TestParameterGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestParameterGroup.swift; sourceTree = "<group>"; };
+		BCA736B3277E1E9700935045 /* Identifier+ParameterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identifier+ParameterFactory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				BC005138277BBCC400CA0583 /* Constraint.swift */,
 				BC005139277BBCC400CA0583 /* Formatters.swift */,
 				BC00513A277BBCC400CA0583 /* Identifier.swift */,
+				BCA736B3277E1E9700935045 /* Identifier+ParameterFactory.swift */,
 			);
 			path = Paralex;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				BC00514B277BBCC500CA0583 /* Identifier.swift in Sources */,
 				BC005145277BBCC400CA0583 /* LabelInfo.swift in Sources */,
 				BC005143277BBCC400CA0583 /* BaseProtocols.swift in Sources */,
+				BCA736B4277E1E9700935045 /* Identifier+ParameterFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

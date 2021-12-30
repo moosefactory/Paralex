@@ -130,6 +130,8 @@ open class GroupGraphNode: GraphNode {
     public var group: Group
     public var child: [GraphNode] = []
     
+    // MARK: - Access child bu identifier
+
     public subscript (identifier: Identifier) -> GraphNode? {
         return child.first(where: { $0.identifier == identifier })
     }
@@ -142,6 +144,40 @@ open class GroupGraphNode: GraphNode {
     public func parameterNode(with identifier: Identifier) -> ParameterGraphNode? {
         let parameterNode = child.first(where: { ($0 as? ParameterGraphNode)?.identifier == identifier })
         return (parameterNode as? ParameterGraphNode)
+    }
+
+    // MARK: - Access child by path
+    
+    public func groupNode(with path: String) -> GroupGraphNode? {
+        let components = path.split(separator: ".")
+        var searchNode: GroupGraphNode? = self
+        for component in components {
+            let node = searchNode?.node(with: String(component))
+            switch node {
+            case is GroupGraphNode:
+                searchNode = node as? GroupGraphNode
+            default:
+                return nil
+            }
+        }
+        return searchNode
+    }
+    
+    public func parameterNode(with path: String) -> ParameterGraphNode? {
+        let components = path.split(separator: ".")
+        var searchNode: GroupGraphNode? = self
+        for component in components {
+            let node = searchNode?.node(with: String(component))
+            switch node {
+            case is GroupGraphNode:
+                searchNode = node as? GroupGraphNode
+            case is ParameterGraphNode:
+                return (node as? ParameterGraphNode)
+            default:
+                return nil
+            }
+        }
+        return nil
     }
 
     // MARK: Loggable Protocol

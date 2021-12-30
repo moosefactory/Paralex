@@ -80,35 +80,11 @@ extension Container {
 
 extension Container {
     
-    func groupNode(with path: String) -> GroupGraphNode? {
-        let components = path.split(separator: ".")
-        var searchNode: GroupGraphNode? = graph
-        for component in components {
-            let node = searchNode?.node(with: String(component))
-            switch node {
-            case is GroupGraphNode:
-                searchNode = node as? GroupGraphNode
-            default:
-                return nil
-            }
-        }
-        return searchNode
+    public func groupNode(with path: String) -> GroupGraphNode? {
+        graph.groupNode(with: path)
     }
     
-    func parameterNode(with path: String) -> ParameterGraphNode? {
-        let components = path.split(separator: ".")
-        var searchNode: GroupGraphNode? = graph
-        for component in components {
-            let node = searchNode?.node(with: String(component))
-            switch node {
-            case is GroupGraphNode:
-                searchNode = node as? GroupGraphNode
-            case is ParameterGraphNode:
-                return (node as? ParameterGraphNode)
-            default:
-                return nil
-            }
-        }
-        return nil
+    public func parameterNode(with path: String) -> ParameterGraphNode? {
+        graph.parameterNode(with: path)
     }
 }

@@ -32,7 +32,7 @@ public class Item: Identifiable {
     
     var isEnabled: Bool = true
     
-    var name: String { return context?.localizedLabel(for: identifier).name ?? identifier.rawValue }
+    public var name: String { return context?.localizedLabel(for: identifier).name ?? identifier.rawValue }
     
     init(identifier: Identifier,
          in context: Context,
