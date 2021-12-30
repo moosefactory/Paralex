@@ -91,7 +91,7 @@ public extension Identifier {
                                  positive: Bool = true,
                                  defaultValue: Int? = nil) -> Identifier {
         let defaultValue = defaultValue == nil ? nil : max(min(1, defaultValue ?? 0),0)
-        let constraint = Constraint(doubleMin: positive ? 0 : -1, doubleMax: 1, granularity: granularity, defaultValue: Double(defaultValue!))
+        let constraint = Constraint(doubleMin: positive ? 0 : -1, doubleMax: 1, granularity: granularity, defaultValue: defaultValue == nil ? nil : Double(defaultValue!))
         return Identifier(rawValue: identifier, role: .parameter, type: .double, constraint: constraint)
     }
 

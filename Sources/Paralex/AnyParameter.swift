@@ -42,7 +42,7 @@ public protocol ParameterBase {
 
 public protocol AnyParameter: AnyObject, ParameterBase, Identified {
     
-    var context: Context? { get }
+    var context: PXContext? { get }
     
     /// Unique UUID
     

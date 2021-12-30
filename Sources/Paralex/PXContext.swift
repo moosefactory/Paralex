@@ -6,7 +6,7 @@
 /* MooseFactory Software                                                    */
 /*--------------------------------------------------------------------------*/
 
-// Context.swift - Created by Tristan Leblanc on 10/12/2021.
+// PXContext.swift - Created by Tristan Leblanc on 10/12/2021.
 
 import Foundation
 #if targetEnvironment(macCatalyst)
@@ -19,7 +19,7 @@ import AppKit
 ///
 /// Context is simple object that manage the localizations
 
-open class Context {
+open class PXContext {
     
     public enum Err: String, Error {
         case notAGroupIdentifier = "notAGroupIdentifier"
@@ -66,7 +66,7 @@ open class Context {
 
 // MARK: - Context -
 
-public extension Context {
+public extension PXContext {
     
     func localizedName(for identifier: Identifier) -> String {
         return Bundle.main.localizedString(forKey: identifier.rawValue, value: identifier.rawValue, table: localizedNamesFile)

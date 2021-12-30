@@ -157,7 +157,7 @@ extension Array where Element == Identifier {
     
     /// makeParameters
     
-    public func makeParameters(in context: Context) throws -> [Parameter] {
+    public func makeParameters(in context: PXContext) throws -> [Parameter] {
         compactMap { try? $0.makeParameter(in: context) }
     }
     
