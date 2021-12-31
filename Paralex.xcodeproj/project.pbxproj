@@ -8,35 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		BC00504E2776204C00CA0583 /* Paralex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0050432776204C00CA0583 /* Paralex.framework */; };
-		BC00513B277BBCC400CA0583 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512A277BBCC400CA0583 /* Parameter.swift */; };
-		BC00513C277BBCC400CA0583 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512B277BBCC400CA0583 /* Item.swift */; };
-		BC00513D277BBCC400CA0583 /* TypedParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512C277BBCC400CA0583 /* TypedParameters.swift */; };
-		BC00513E277BBCC400CA0583 /* ParameterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512D277BBCC400CA0583 /* ParameterType.swift */; };
-		BC00513F277BBCC400CA0583 /* IdentifierTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512E277BBCC400CA0583 /* IdentifierTable.swift */; };
-		BC005140277BBCC400CA0583 /* AnyParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512F277BBCC400CA0583 /* AnyParameter.swift */; };
-		BC005141277BBCC400CA0583 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005130277BBCC400CA0583 /* Controller.swift */; };
-		BC005142277BBCC400CA0583 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005131277BBCC400CA0583 /* Container.swift */; };
+		BC00513B277BBCC400CA0583 /* PXParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512A277BBCC400CA0583 /* PXParameter.swift */; };
+		BC00513C277BBCC400CA0583 /* PXItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512B277BBCC400CA0583 /* PXItem.swift */; };
+		BC00513D277BBCC400CA0583 /* PXParameter+Typed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512C277BBCC400CA0583 /* PXParameter+Typed.swift */; };
+		BC00513E277BBCC400CA0583 /* PXParameter+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00512D277BBCC400CA0583 /* PXParameter+Type.swift */; };
+		BC005142277BBCC400CA0583 /* PXContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005131277BBCC400CA0583 /* PXContainer.swift */; };
 		BC005143277BBCC400CA0583 /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005132277BBCC400CA0583 /* BaseProtocols.swift */; };
-		BC005144277BBCC400CA0583 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005133277BBCC400CA0583 /* Context.swift */; };
-		BC005145277BBCC400CA0583 /* LabelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005134277BBCC400CA0583 /* LabelInfo.swift */; };
+		BC005145277BBCC400CA0583 /* PXLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005134277BBCC400CA0583 /* PXLabel.swift */; };
 		BC005146277BBCC400CA0583 /* Paralex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005135277BBCC400CA0583 /* Paralex.swift */; };
-		BC005147277BBCC400CA0583 /* GraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005136277BBCC400CA0583 /* GraphNode.swift */; };
-		BC005148277BBCC400CA0583 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005137277BBCC400CA0583 /* Group.swift */; };
-		BC005149277BBCC400CA0583 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005138277BBCC400CA0583 /* Constraint.swift */; };
+		BC005147277BBCC400CA0583 /* PXParameter+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005136277BBCC400CA0583 /* PXParameter+Utils.swift */; };
+		BC005148277BBCC400CA0583 /* PXGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005137277BBCC400CA0583 /* PXGroup.swift */; };
+		BC005149277BBCC400CA0583 /* PXConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005138277BBCC400CA0583 /* PXConstraint.swift */; };
 		BC00514A277BBCC400CA0583 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC005139277BBCC400CA0583 /* Formatters.swift */; };
-		BC00514B277BBCC500CA0583 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00513A277BBCC400CA0583 /* Identifier.swift */; };
-		BC7F887B277DC5A30057FA6B /* ParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F886D277DC5A30057FA6B /* ParameterTests.swift */; };
-		BC7F887C277DC5A30057FA6B /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F886E277DC5A30057FA6B /* ContextTests.swift */; };
-		BC7F887D277DC5A30057FA6B /* IdentifierTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F886F277DC5A30057FA6B /* IdentifierTable.swift */; };
+		BC00514B277BBCC500CA0583 /* PXIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00513A277BBCC400CA0583 /* PXIdentifier.swift */; };
 		BC7F887E277DC5A30057FA6B /* ParametersAbbreviations.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC7F8871277DC5A30057FA6B /* ParametersAbbreviations.strings */; };
 		BC7F887F277DC5A30057FA6B /* ParameterNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC7F8873277DC5A30057FA6B /* ParameterNames.strings */; };
 		BC7F8880277DC5A30057FA6B /* TestContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8875277DC5A30057FA6B /* TestContext.swift */; };
-		BC7F8881277DC5A30057FA6B /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8876277DC5A30057FA6B /* Graph.swift */; };
 		BC7F8882277DC5A30057FA6B /* TestIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8877277DC5A30057FA6B /* TestIdentifier.swift */; };
 		BC7F8883277DC5A30057FA6B /* ParalexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8878277DC5A30057FA6B /* ParalexTests.swift */; };
 		BC7F8884277DC5A30057FA6B /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F8879277DC5A30057FA6B /* FormatterTests.swift */; };
-		BC7F8885277DC5A30057FA6B /* TestParameterGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F887A277DC5A30057FA6B /* TestParameterGroup.swift */; };
-		BCA736B4277E1E9700935045 /* Identifier+ParameterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA736B3277E1E9700935045 /* Identifier+ParameterFactory.swift */; };
+		BCA736B4277E1E9700935045 /* PXIdentifier+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA736B3277E1E9700935045 /* PXIdentifier+Factory.swift */; };
+		BCA736C7277E61DD00935045 /* PXContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA736C6277E61DC00935045 /* PXContext.swift */; };
+		BCA736DF277F1A9500935045 /* PXParameter+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA736DE277F1A9500935045 /* PXParameter+Array.swift */; };
+		BCA736E1277F586400935045 /* PXFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA736E0277F586400935045 /* PXFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,35 +49,30 @@
 		BC00505D2776238D00CA0583 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BC00506D2776238D00CA0583 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		BC00506E2776238E00CA0583 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BC00512A277BBCC400CA0583 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
-		BC00512B277BBCC400CA0583 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		BC00512C277BBCC400CA0583 /* TypedParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedParameters.swift; sourceTree = "<group>"; };
-		BC00512D277BBCC400CA0583 /* ParameterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterType.swift; sourceTree = "<group>"; };
-		BC00512E277BBCC400CA0583 /* IdentifierTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierTable.swift; sourceTree = "<group>"; };
-		BC00512F277BBCC400CA0583 /* AnyParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyParameter.swift; sourceTree = "<group>"; };
-		BC005130277BBCC400CA0583 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
-		BC005131277BBCC400CA0583 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		BC00512A277BBCC400CA0583 /* PXParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXParameter.swift; sourceTree = "<group>"; };
+		BC00512B277BBCC400CA0583 /* PXItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXItem.swift; sourceTree = "<group>"; };
+		BC00512C277BBCC400CA0583 /* PXParameter+Typed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PXParameter+Typed.swift"; sourceTree = "<group>"; };
+		BC00512D277BBCC400CA0583 /* PXParameter+Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PXParameter+Type.swift"; sourceTree = "<group>"; };
+		BC005131277BBCC400CA0583 /* PXContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXContainer.swift; sourceTree = "<group>"; };
 		BC005132277BBCC400CA0583 /* BaseProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
-		BC005133277BBCC400CA0583 /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
-		BC005134277BBCC400CA0583 /* LabelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelInfo.swift; sourceTree = "<group>"; };
+		BC005134277BBCC400CA0583 /* PXLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXLabel.swift; sourceTree = "<group>"; };
 		BC005135277BBCC400CA0583 /* Paralex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paralex.swift; sourceTree = "<group>"; };
-		BC005136277BBCC400CA0583 /* GraphNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphNode.swift; sourceTree = "<group>"; };
-		BC005137277BBCC400CA0583 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		BC005138277BBCC400CA0583 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		BC005136277BBCC400CA0583 /* PXParameter+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PXParameter+Utils.swift"; sourceTree = "<group>"; };
+		BC005137277BBCC400CA0583 /* PXGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXGroup.swift; sourceTree = "<group>"; };
+		BC005138277BBCC400CA0583 /* PXConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXConstraint.swift; sourceTree = "<group>"; };
 		BC005139277BBCC400CA0583 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
-		BC00513A277BBCC400CA0583 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		BC00513A277BBCC400CA0583 /* PXIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXIdentifier.swift; sourceTree = "<group>"; };
 		BC7F886D277DC5A30057FA6B /* ParameterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterTests.swift; sourceTree = "<group>"; };
-		BC7F886E277DC5A30057FA6B /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
-		BC7F886F277DC5A30057FA6B /* IdentifierTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierTable.swift; sourceTree = "<group>"; };
 		BC7F8872277DC5A30057FA6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ParametersAbbreviations.strings; sourceTree = "<group>"; };
 		BC7F8874277DC5A30057FA6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ParameterNames.strings; sourceTree = "<group>"; };
 		BC7F8875277DC5A30057FA6B /* TestContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestContext.swift; sourceTree = "<group>"; };
-		BC7F8876277DC5A30057FA6B /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		BC7F8877277DC5A30057FA6B /* TestIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestIdentifier.swift; sourceTree = "<group>"; };
 		BC7F8878277DC5A30057FA6B /* ParalexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParalexTests.swift; sourceTree = "<group>"; };
 		BC7F8879277DC5A30057FA6B /* FormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
-		BC7F887A277DC5A30057FA6B /* TestParameterGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestParameterGroup.swift; sourceTree = "<group>"; };
-		BCA736B3277E1E9700935045 /* Identifier+ParameterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identifier+ParameterFactory.swift"; sourceTree = "<group>"; };
+		BCA736B3277E1E9700935045 /* PXIdentifier+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PXIdentifier+Factory.swift"; sourceTree = "<group>"; };
+		BCA736C6277E61DC00935045 /* PXContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXContext.swift; sourceTree = "<group>"; };
+		BCA736DE277F1A9500935045 /* PXParameter+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PXParameter+Array.swift"; sourceTree = "<group>"; };
+		BCA736E0277F586400935045 /* PXFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,24 +126,23 @@
 		BC005129277BBCC400CA0583 /* Paralex */ = {
 			isa = PBXGroup;
 			children = (
-				BC00512A277BBCC400CA0583 /* Parameter.swift */,
-				BC00512B277BBCC400CA0583 /* Item.swift */,
-				BC00512C277BBCC400CA0583 /* TypedParameters.swift */,
-				BC00512D277BBCC400CA0583 /* ParameterType.swift */,
-				BC00512E277BBCC400CA0583 /* IdentifierTable.swift */,
-				BC00512F277BBCC400CA0583 /* AnyParameter.swift */,
-				BC005130277BBCC400CA0583 /* Controller.swift */,
-				BC005131277BBCC400CA0583 /* Container.swift */,
-				BC005132277BBCC400CA0583 /* BaseProtocols.swift */,
-				BC005133277BBCC400CA0583 /* Context.swift */,
-				BC005134277BBCC400CA0583 /* LabelInfo.swift */,
 				BC005135277BBCC400CA0583 /* Paralex.swift */,
-				BC005136277BBCC400CA0583 /* GraphNode.swift */,
-				BC005137277BBCC400CA0583 /* Group.swift */,
-				BC005138277BBCC400CA0583 /* Constraint.swift */,
+				BC005138277BBCC400CA0583 /* PXConstraint.swift */,
+				BC005131277BBCC400CA0583 /* PXContainer.swift */,
+				BCA736C6277E61DC00935045 /* PXContext.swift */,
+				BCA736E0277F586400935045 /* PXFactory.swift */,
+				BC005137277BBCC400CA0583 /* PXGroup.swift */,
+				BC00513A277BBCC400CA0583 /* PXIdentifier.swift */,
+				BCA736B3277E1E9700935045 /* PXIdentifier+Factory.swift */,
+				BC005134277BBCC400CA0583 /* PXLabel.swift */,
+				BC00512A277BBCC400CA0583 /* PXParameter.swift */,
+				BCA736DE277F1A9500935045 /* PXParameter+Array.swift */,
+				BC005136277BBCC400CA0583 /* PXParameter+Utils.swift */,
+				BC00512B277BBCC400CA0583 /* PXItem.swift */,
+				BC00512C277BBCC400CA0583 /* PXParameter+Typed.swift */,
+				BC00512D277BBCC400CA0583 /* PXParameter+Type.swift */,
+				BC005132277BBCC400CA0583 /* BaseProtocols.swift */,
 				BC005139277BBCC400CA0583 /* Formatters.swift */,
-				BC00513A277BBCC400CA0583 /* Identifier.swift */,
-				BCA736B3277E1E9700935045 /* Identifier+ParameterFactory.swift */,
 			);
 			path = Paralex;
 			sourceTree = "<group>";
@@ -171,15 +159,11 @@
 			isa = PBXGroup;
 			children = (
 				BC7F886D277DC5A30057FA6B /* ParameterTests.swift */,
-				BC7F886E277DC5A30057FA6B /* ContextTests.swift */,
-				BC7F886F277DC5A30057FA6B /* IdentifierTable.swift */,
 				BC7F8870277DC5A30057FA6B /* Resources */,
 				BC7F8875277DC5A30057FA6B /* TestContext.swift */,
-				BC7F8876277DC5A30057FA6B /* Graph.swift */,
 				BC7F8877277DC5A30057FA6B /* TestIdentifier.swift */,
 				BC7F8878277DC5A30057FA6B /* ParalexTests.swift */,
 				BC7F8879277DC5A30057FA6B /* FormatterTests.swift */,
-				BC7F887A277DC5A30057FA6B /* TestParameterGroup.swift */,
 			);
 			path = ParalexTests;
 			sourceTree = "<group>";
@@ -303,24 +287,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC00513C277BBCC400CA0583 /* Item.swift in Sources */,
-				BC00513E277BBCC400CA0583 /* ParameterType.swift in Sources */,
+				BCA736C7277E61DD00935045 /* PXContext.swift in Sources */,
+				BC00513C277BBCC400CA0583 /* PXItem.swift in Sources */,
+				BCA736E1277F586400935045 /* PXFactory.swift in Sources */,
+				BC00513E277BBCC400CA0583 /* PXParameter+Type.swift in Sources */,
 				BC00514A277BBCC400CA0583 /* Formatters.swift in Sources */,
-				BC005140277BBCC400CA0583 /* AnyParameter.swift in Sources */,
-				BC005149277BBCC400CA0583 /* Constraint.swift in Sources */,
-				BC005144277BBCC400CA0583 /* Context.swift in Sources */,
-				BC00513B277BBCC400CA0583 /* Parameter.swift in Sources */,
-				BC005148277BBCC400CA0583 /* Group.swift in Sources */,
-				BC00513D277BBCC400CA0583 /* TypedParameters.swift in Sources */,
-				BC005142277BBCC400CA0583 /* Container.swift in Sources */,
-				BC00513F277BBCC400CA0583 /* IdentifierTable.swift in Sources */,
-				BC005147277BBCC400CA0583 /* GraphNode.swift in Sources */,
-				BC005141277BBCC400CA0583 /* Controller.swift in Sources */,
+				BC005149277BBCC400CA0583 /* PXConstraint.swift in Sources */,
+				BC00513B277BBCC400CA0583 /* PXParameter.swift in Sources */,
+				BC005148277BBCC400CA0583 /* PXGroup.swift in Sources */,
+				BC00513D277BBCC400CA0583 /* PXParameter+Typed.swift in Sources */,
+				BC005142277BBCC400CA0583 /* PXContainer.swift in Sources */,
+				BCA736DF277F1A9500935045 /* PXParameter+Array.swift in Sources */,
+				BC005147277BBCC400CA0583 /* PXParameter+Utils.swift in Sources */,
 				BC005146277BBCC400CA0583 /* Paralex.swift in Sources */,
-				BC00514B277BBCC500CA0583 /* Identifier.swift in Sources */,
-				BC005145277BBCC400CA0583 /* LabelInfo.swift in Sources */,
+				BC00514B277BBCC500CA0583 /* PXIdentifier.swift in Sources */,
+				BC005145277BBCC400CA0583 /* PXLabel.swift in Sources */,
 				BC005143277BBCC400CA0583 /* BaseProtocols.swift in Sources */,
-				BCA736B4277E1E9700935045 /* Identifier+ParameterFactory.swift in Sources */,
+				BCA736B4277E1E9700935045 /* PXIdentifier+Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,15 +311,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC7F887B277DC5A30057FA6B /* ParameterTests.swift in Sources */,
 				BC7F8880277DC5A30057FA6B /* TestContext.swift in Sources */,
-				BC7F8885277DC5A30057FA6B /* TestParameterGroup.swift in Sources */,
-				BC7F887C277DC5A30057FA6B /* ContextTests.swift in Sources */,
-				BC7F887D277DC5A30057FA6B /* IdentifierTable.swift in Sources */,
 				BC7F8882277DC5A30057FA6B /* TestIdentifier.swift in Sources */,
 				BC7F8883277DC5A30057FA6B /* ParalexTests.swift in Sources */,
 				BC7F8884277DC5A30057FA6B /* FormatterTests.swift in Sources */,
-				BC7F8881277DC5A30057FA6B /* Graph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

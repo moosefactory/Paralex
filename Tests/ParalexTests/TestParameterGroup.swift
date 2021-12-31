@@ -10,40 +10,36 @@ import XCTest
 
 final class TestParameterGroup: XCTestCase {
     
-
+    let testContext = TestContext()
+    
     func test_01_Group() throws {
         
-
-        let groupB = Group(identifier: Identifier(rawValue: "groupB", role: .group), parameters: [
-            try Identifier(rawValue: "pB1", role: .parameter).makeParameter(in: context),
-            try Identifier(rawValue: "pB2", role: .parameter).makeParameter(in: context)
+        let groupB = try PXGroup(identifier: PXIdentifier(rawValue: "groupB", role: .group), in: testContext , parameters: [
+            try PXIdentifier(rawValue: "pB1", role: .parameter).makeParameter(in: context),
+            try PXIdentifier(rawValue: "pB2", role: .parameter).makeParameter(in: context)
         ])
 
-        let groupD = Group(identifier: Identifier(rawValue: "groupD", role: .group), parameters: [
-            try Identifier(rawValue: "pD1", role: .parameter).makeParameter(in: context),
-            try Identifier(rawValue: "pD2", role: .parameter).makeParameter(in: context)
+        let groupD = try PXGroup(identifier: PXIdentifier(rawValue: "groupD", role: .group), in: testContext , parameters: [
+            try PXIdentifier(rawValue: "pD1", role: .parameter).makeParameter(in: context),
+            try PXIdentifier(rawValue: "pD2", role: .parameter).makeParameter(in: context)
         ])
 
-        let groupC = Group(identifier: Identifier(rawValue: "groupC", role: .group), parameters: [
-            try Identifier(rawValue: "pC1", role: .parameter).makeParameter(in: context),
-            try Identifier(rawValue: "pC2", role: .parameter).makeParameter(in: context)
-        ], subGroups: [groupD])
+        let groupC = try PXGroup(identifier: PXIdentifier(rawValue: "groupC", role: .group), in: testContext , parameters: [
+            try PXIdentifier(rawValue: "pC1", role: .parameter).makeParameter(in: context),
+            try PXIdentifier(rawValue: "pC2", role: .parameter).makeParameter(in: context),
+            groupD
+        ])
 
-        let groupA = Group(identifier: Identifier(rawValue: "groupA", role: .group), parameters: [
-            try Identifier(rawValue: "pA1", role: .parameter).makeParameter(in: context),
-            try Identifier(rawValue: "pA2", role: .parameter).makeParameter(in: context)
-        ], subGroups: [groupB, groupC])
+        let groupA = try PXGroup(identifier: PXIdentifier(rawValue: "groupA", role: .group), in: testContext , parameters: [
+            try PXIdentifier(rawValue: "pA1", role: .parameter).makeParameter(in: context),
+            try PXIdentifier(rawValue: "pA2", role: .parameter).makeParameter(in: context),
+            groupB,
+            groupC
+        ])
 
-        testSection("1 - Test Parameter groups") {
+        testSection("1 - Test PXGroup") {
             print(groupA.log)
         }
-        
-        testSection("2 - Test Graph") {
-            let graph = GroupGraphNode(group: groupA)
-            print(graph.log)
-        }
-
-
     }
 
 }

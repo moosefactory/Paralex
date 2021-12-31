@@ -10,10 +10,37 @@
 
 import Foundation
 
+/// ParameterBase
+///
+/// The base protocol for parameters and identifiers
+///
+/// Identifiers and Parameters are both based on this protocol.
+///
+/// Identifiers use this information to:
+///     - Create the parameter
+///     - Give relevant informations to the UI, even if a parameter is not set yet
+///
+/// Parameters are first created from the identifier, and inherits of all properties values
+/// They can then be modified for special needs. A common case is the constraint modification.
+///
+/// ParameterBase constraints can be overiden by parameters.
+
+public protocol ParameterBase: Identifiable {
+    
+    /// The constraint that will be set to the created parameter
+    
+    var constraint: PXConstraint? { get }
+    
+    /// The type of parameter ( bool, int, double )
+    
+    var type: PXParameterType { get }
+}
+
+
 // MARK: - Identifiable
 
 public protocol Identified {
-    var identifier: Identifier { get }
+    var identifier: PXIdentifier { get }
 }
 
 public extension Identified {
@@ -26,7 +53,6 @@ public extension Identified {
         return identifier.rawValue
     }
 }
-
 
 public protocol Loggable {
     var log: String { get }

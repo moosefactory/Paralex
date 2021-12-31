@@ -7,10 +7,13 @@
 import XCTest
 @testable import Paralex
 
-class TestContext: Context {
-    override var name: String { "TestContext" }
+class TestContext: PXContext {
+
+    public init() {
+        super.init(name: "TestContext")
+    }
     
-    override func symbols(for identifier: Identifier) -> String? {
+    override func symbols(for identifier: PXIdentifier) -> String? {
         switch identifier.rawValue {
         case "labeledIdentifier":
             return "􀊴􀊵"
@@ -18,6 +21,7 @@ class TestContext: Context {
             return nil
         }
     }
+
 }
 
 final class TestIdentifier: XCTestCase {
@@ -28,7 +32,7 @@ final class TestIdentifier: XCTestCase {
         
         let roles: [IdentifierRole] = [.parameter, .group, .command, .label]
         for role in roles {
-            let identifier = Identifier(rawValue: "\(role.rawValue)Testidentifier", role: role, type: .void, constraint: nil)
+            let identifier = PXIdentifier(rawValue: "\(role.rawValue)Testidentifier", role: role, type: .void, constraint: nil)
             print(identifier.log)
         }
     }
@@ -37,9 +41,9 @@ final class TestIdentifier: XCTestCase {
         testSection("2 - Test parameter identifier types") {
             print("---> Make identifier with types [.void, .bool, .int, .double]")
             
-            let types: [ParameterType] = [.void, .bool, .int, .double]
+            let types: [PXParameterType] = [.void, .bool, .int, .double]
             for type in types {
-                let identifier = Identifier(rawValue: "\(type.rawValue)Testidentifier", role: .parameter, type: type, constraint: nil)
+                let identifier = PXIdentifier(rawValue: "\(type.rawValue)Testidentifier", role: .parameter, type: type, constraint: nil)
                 print(identifier.log)
             }
         }

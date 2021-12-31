@@ -9,6 +9,9 @@
 import Foundation
 import SwiftUI
 
+/// Paralex
+///
+/// Paralex Framework - As "Parameters Lexicon"
 public struct Paralex {
 
     static let version = 1.0
@@ -27,4 +30,5 @@ struct ParalexError: RawRepresentable, Error {
 
     static let unregisteredIdentifier = ParalexError(rawValue: "unregisteredIdentifierError")
     static let notAParameter = ParalexError(rawValue: "notAParameter")
+    static let cantCreateGroupWithNonGroupIdentifier = ParalexError(rawValue: "cantCreateGroupWithNonGroupIdentifier")
 }

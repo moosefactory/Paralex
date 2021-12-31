@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct LabelInfo: Loggable {
+public struct PXLabel: Loggable {
     
     public private(set) var slug: String
     

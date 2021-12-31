@@ -11,13 +11,35 @@
 import Foundation
 
 
-// MARK: - Double Parameter
+
+// MARK: - Default PXParameter Factory
+
+public extension PXIdentifier {
+    
+    func makeParameter(in group: PXGroup?) throws -> PXParameter {
+        if let group = group, role == .parameter {
+            switch self.type {
+            case .bool:
+                return BoolParameter(self, in: group)
+            case .int:
+                return IntParameter(self, in: group, constraint: self.constraint)
+            case .double:
+                return DoubleParameter(self, in: group, constraint: self.constraint)
+            default:
+                return VoidParameter(self, in: group)
+            }
+        }
+        return PXParameter(self, in: group, constraint: constraint)
+    }
+}
+
+// MARK: - Double PXParameter
 
 /// DoubleParameter
 ///
 /// Wraps an integer into a parameter
 
-public class DoubleParameter: Parameter {
+public class DoubleParameter: PXParameter {
     
     // MARK: Value
     
@@ -29,24 +51,23 @@ public class DoubleParameter: Parameter {
         }
     }
     
-    public init(_ identifier: Identifier,
-                in context: Context,
-                type: ParameterType = .double,
+    public init(_ identifier: PXIdentifier,
+                in group: PXGroup,
                 value: DataType? = nil,
-                constraint: Constraint? = nil,
+                constraint: PXConstraint? = nil,
                 formatter: Formatter = RealFormatter()) {
         self.value = value ?? 0
-        super.init(identifier, in: context, type: type, doubleValue: value ?? 0, constraint: constraint)
+        super.init(identifier, in: group, doubleValue: value ?? 0, constraint: constraint)
     }
 }
 
-// MARK: - Int Parameter
+// MARK: - Int PXParameter
 
 /// IntParameter
 ///
 /// Wraps an integer into a parameter
 ///
-public class IntParameter: Parameter {
+public class IntParameter: PXParameter {
     
     // MARK: Int Value
     
@@ -58,25 +79,24 @@ public class IntParameter: Parameter {
         }
     }
     
-    public init(_ identifier: Identifier,
-                in context: Context,
+    public init(_ identifier: PXIdentifier,
+                in group: PXGroup,
                 value: DataType? = nil,
-                type: ParameterType = .int,
-                constraint: Constraint? = nil,
+                constraint: PXConstraint? = nil,
                 formatter: Formatter = IntFormatter()) {
         self.value = Int(value ?? 0)
-        super.init(identifier, in: context, type: type, doubleValue: Double(value ?? 0), constraint: constraint)
+        super.init(identifier, in: group, doubleValue: Double(value ?? 0), constraint: constraint)
     }
 
 }
 
-// MARK: - Bool Parameter
+// MARK: - Bool PXParameter
 
 /// BoolParameter
 ///
 /// Wraps a boolean into a parameter
 
-public class BoolParameter: Parameter {
+public class BoolParameter: PXParameter {
     
     // MARK: Bool Value
     
@@ -92,25 +112,25 @@ public class BoolParameter: Parameter {
         }
     }
 
-    public init(_ identifier: Identifier,
-                in context: Context,
-                type: ParameterType = .bool,
+    public init(_ identifier: PXIdentifier,
+                in group: PXGroup,
+                type: PXParameterType = .bool,
                 value: DataType? = nil,
-                constraint: Constraint? = nil,
+                constraint: PXConstraint? = nil,
                 formatter: Formatter = BoolFormatter()) {
         self.value = (value ?? false)
-        super.init(identifier, in: context, type: type, doubleValue: (value ?? false) ? 1 : 0, constraint: constraint)
+        super.init(identifier, in: group, doubleValue: (value ?? false) ? 1 : 0, constraint: constraint)
     }
 
 }
 
-// MARK: - Void Parameter
+// MARK: - Void PXParameter
 
 /// VoidParameter
 ///
 /// Wraps a boolean into a parameter
 
-public class VoidParameter: Parameter {
+public class VoidParameter: PXParameter {
     
     // MARK: Bool Value
     
@@ -118,12 +138,12 @@ public class VoidParameter: Parameter {
     
     @Published public var value: DataType
 
-    public init(_ identifier: Identifier,
-                in context: Context,
-                type: ParameterType = .void,
+    public init(_ identifier: PXIdentifier,
+                in group: PXGroup,
+                type: PXParameterType = .void,
                 formatter: Formatter = BoolFormatter()) {
         self.value = 0
-        super.init(identifier, in: context, type: type, doubleValue: 0)
+        super.init(identifier, in: group, doubleValue: 0)
     }
 
 }

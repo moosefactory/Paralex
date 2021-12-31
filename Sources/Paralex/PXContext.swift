@@ -13,11 +13,12 @@ import Foundation
 import AppKit
 #endif
 
-// MARK: - Context -
 
-/// Context
+// MARK: - PXContext -
+
+/// PXContext
 ///
-/// Context is simple object that manage the localizations
+/// PXContext is simple object that manage the localizations
 
 open class PXContext {
     
@@ -26,70 +27,67 @@ open class PXContext {
         case noIdentifierDefinedForThisGroup = "noIdentifierDefinedForThisGroup"
     }
     
-    var localizedNamesFile: String { "\(name.capitalized)ParameterNames" }
-    var localizedShortNamesFile: String { "\(name.capitalized)ParameterShortNames" }
-    var localizedAbbreviationsFile: String { "\(name.capitalized)ParameterAbbreviations" }
+    public private(set) var name: String
     
-    open func name(for identifier: Identifier) -> String {
-        localizedLabel(for: identifier).name
-    }
-    
-    open func shortName(for identifier: Identifier) -> String {
-        localizedLabel(for: identifier).shortName
-    }
-    
-    open func abbreviation(for identifier: Identifier) -> String {
-        localizedLabel(for: identifier).abbreviation
-    }
+    /// long names localization strings
+    /// by default, file name will be "\(name.capitalized)ParameterNames"
+    var localizedNamesFile: String
+    /// short names localization strings
+    /// by default, file name will be "\(name.capitalized)ParameterShortNames"
+    var localizedShortNamesFile: String
+    /// abbreviations names localization strings
+    /// by default, file name will be "\(name.capitalized)ParameterAbbreviations"
+    var localizedAbbreviationsFile: String
 
-    open func symbols(for identifier: Identifier) -> String? {
-        nil
-    }
-
-    func symbol(for identifier: Identifier) -> String? {
-        localizedLabel(for: identifier).symbol
-    }
-
-    
     /// localizationDictionary
     ///
     /// Cache the localization for identifiers as they are requested
     
-    var localizationDictionary: [Identifier: LabelInfo]?
+    var localizationDictionary: [PXIdentifier: PXLabel]?
     
-    public private(set) var name: String
+
+    open func name(for identifier: PXIdentifier) -> String {
+        localizedLabel(for: identifier).name
+    }
     
+    open func shortName(for identifier: PXIdentifier) -> String {
+        localizedLabel(for: identifier).shortName
+    }
+    
+    open func abbreviation(for identifier: PXIdentifier) -> String {
+        localizedLabel(for: identifier).abbreviation
+    }
+
+    open func symbols(for identifier: PXIdentifier) -> String? {
+        nil
+    }
+
+    func symbol(for identifier: PXIdentifier) -> String? {
+        localizedLabel(for: identifier).symbol
+    }
+
     public init(name: String) {
         self.name = name
+        localizedNamesFile = "\(name.capitalized)ParameterNames"
+        localizedShortNamesFile = "\(name.capitalized)ParameterShortNames"
+        localizedAbbreviationsFile = "\(name.capitalized)ParameterAbbreviations"
     }
 }
 
-// MARK: - Context -
+// MARK: - Localization -
 
-public extension PXContext {
+extension PXContext {
     
-    func localizedName(for identifier: Identifier) -> String {
-        return Bundle.main.localizedString(forKey: identifier.rawValue, value: identifier.rawValue, table: localizedNamesFile)
-    }
-    
-    func localizedShortName(for identifier: Identifier) -> String {
-        return Bundle.main.localizedString(forKey: identifier.rawValue, value: identifier.rawValue, table: localizedShortNamesFile)
-    }
-    
-    func localizedAbbreviation(for identifier: Identifier) -> String {
-        Bundle.main.localizedString(forKey: identifier.rawValue, value: identifier.rawValue, table: localizedAbbreviationsFile)
-    }
-    
-    func localizedLabel(for identifier: Identifier) -> LabelInfo {
+    public func localizedLabel(for identifier: PXIdentifier) -> PXLabel {
         if let labelInfo = localizationDictionary?[identifier] {
             return labelInfo
         }
         
         if localizationDictionary == nil {
-            localizationDictionary = [Identifier: LabelInfo]()
+            localizationDictionary = [PXIdentifier: PXLabel]()
         }
         
-        let labelInfo = LabelInfo(slug: identifier.rawValue,
+        let labelInfo = PXLabel(slug: identifier.rawValue,
                          name: localizedName(for: identifier),
                          shortName: localizedShortName(for: identifier),
                          abbreviation: localizedAbbreviation(for: identifier),
@@ -100,5 +98,17 @@ public extension PXContext {
         return labelInfo
         
     }
+
+    func localizedName(for identifier: PXIdentifier) -> String {
+        return Bundle.main.localizedString(forKey: identifier.rawValue, value: identifier.rawValue, table: localizedNamesFile)
+    }
     
+    func localizedShortName(for identifier: PXIdentifier) -> String {
+        return Bundle.main.localizedString(forKey: identifier.rawValue, value: identifier.rawValue, table: localizedShortNamesFile)
+    }
+    
+    func localizedAbbreviation(for identifier: PXIdentifier) -> String {
+        Bundle.main.localizedString(forKey: identifier.rawValue, value: identifier.rawValue, table: localizedAbbreviationsFile)
+    }
 }
+

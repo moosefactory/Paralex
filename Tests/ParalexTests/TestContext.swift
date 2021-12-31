@@ -10,64 +10,89 @@ import AppKit
 
 import Paralex
 
-var context: Context = Context(name: "TestMachine")
+var context: PXContext = PXContext(name: "TestMachine")
 
-extension Identifier {
-    static let exampleLabel = Identifier(rawValue: "myLabel", role: .label)
-    static let exampleBool = Identifier(rawValue: "myBool", role: .parameter, type: .bool)
-    static let exampleInt = Identifier(rawValue: "myInt", role: .parameter, type: .int)
-    static let exampleReal = Identifier(rawValue: "myReal", role: .parameter, type: .double)
-    static let exampleConstrainedInt = Identifier(rawValue: "myClampedInt", role: .parameter, type: .int)
-    static let exampleConstrainedReal = Identifier(rawValue: "myClampedDouble", role: .parameter, type: .double)
+extension PXIdentifier {
     
-    static let startCommand = Identifier(rawValue: "start", role: .command)
-    static let stopCommand = Identifier(rawValue: "stop", role: .command)
+    static let machine = PXIdentifier(rawValue: "machine", role: .label)
+    
+    static let parameters = group("parameters")
+    
+    static let exampleLabel = label("myLabel")
+    static let exampleBool = bool("myBool")
+    static let exampleInt = int("myInt")
+    static let exampleReal = double("myReal")
+    static let exampleConstrainedInt = int("myClampedInt",
+                                           constraint: PXConstraint(doubleMin: 0, granularity: 1, defaultValue: 4))
+    static let exampleConstrainedReal = double("myClampedDouble",
+                                               constraint: PXConstraint(doubleMin: -1, doubleMax: 1, granularity: 0.1, defaultValue: 0))
+    
+    static let commands = group("commands")
+    
+    static let startCommand = command("start")
+    static let stopCommand = command("stop")
 }
 
-struct TestMachine{
+struct TestFactory: PXFactory {
     
-//    var tree: NSTreeNode
-    
-    var localizedNamesFile: String? { "ParameterNames" }
-    
-    var localizedAbbreviationsFile: String? { "ParameterAbbreviations" }
-    
-    func makeParameter(for identifier: Identifier) -> AnyParameter? {
-        return try? identifier.makeParameter(in: context)
+    func constraint(for identifier: PXIdentifier) throws -> PXConstraint? {
+        nil
     }
     
-    func constraint(for identifier: Identifier) -> Constraint? {
-        switch identifier {
-        case .exampleConstrainedInt:
-            return Constraint(doubleMin: 0, granularity: 1, defaultValue: 4)
-        case .exampleConstrainedReal:
-            return Constraint(doubleMin: -1, doubleMax: 1, granularity: 0.1, defaultValue: 0)
-        default:
-            return nil
+    func makeGroup(with identifier: PXIdentifier, in group: PXGroup? = nil) throws -> PXGroup {
+        let identifiers = try identifiersInGroup(with: identifier)
+        let group = try PXGroup(identifier: identifier, in: group, parameters: [])
+        
+        let parameters = try identifiers.makeParameters(in: group)
+        
+        return group
+    }
+    
+    func identifiersInGroup(with identifier: PXIdentifier) throws -> [PXIdentifier] {
+        if identifier == .machine {
+            return [
+                .exampleLabel, .exampleBool, .exampleInt, .exampleReal, .exampleConstrainedInt, .exampleConstrainedReal,
+                .startCommand, .stopCommand
+            ]
+        }
+        return []
+    }
+}
+
+struct TestMachine: PXContainer {
+    
+    var root: PXGroup
+    
+    var factory: PXFactory
+    
+    func constraint(for identifier: PXIdentifier) throws -> PXConstraint? {
+        return nil
+    }
+    
+    var context: PXContext
+    
+    
+    
+    init() {
+        context = TestContext()
+        factory = TestFactory()
+        
+        do {
+            self.root = try factory.makeGroup(with: .machine, in: nil)
+        }
+        catch {
+            fatalError(error.localizedDescription)
         }
     }
-    
-    var localizationFile: String?
-
-    var allIdentifiers: [Identifier] = [
-        .exampleLabel,
-        .exampleBool,
-        .exampleInt,
-        .exampleReal,
-        .exampleConstrainedInt,
-        .exampleConstrainedReal,
-        .startCommand,
-        .stopCommand
-    ]
     
     
     func test_01_LabelInfo() throws {
         testSection("3 - Test identifier with label info") {
             
-            var identifier = Identifier(rawValue: "labeledIdentifier", role: .label)
-           
+            var identifier = PXIdentifier(rawValue: "labeledIdentifier", role: .label)
+            
             var labelInfo = context.localizedLabel(for: identifier)
-
+            
             print(labelInfo.log)
             
             print("Symbol 0 : \(labelInfo.symbol)")

@@ -15,7 +15,7 @@ import Foundation
 /// Any parameter can be attached to a constraint object that will clamp and round the value.
 /// It also provides a default value.
 
-public class Constraint: Loggable {
+public class PXConstraint: Loggable {
     
     /// The parameter minimum value - -∞ if nil
     
@@ -74,7 +74,7 @@ public class Constraint: Loggable {
 
 // MARK: - CustomStringConvertible Protocol -
 
-extension Constraint: CustomStringConvertible {
+extension PXConstraint: CustomStringConvertible {
     
     /// description
     ///

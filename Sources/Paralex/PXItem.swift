@@ -17,35 +17,36 @@ import Foundation
 ///
 /// It adds an optionnal reference to any external object
 ///
-public class Item: Identifiable {
+public class PXItem: Identifiable {
     
-    var context: Context?
+    var context: PXContext?
     
     // Unique string identifier
-    var identifier: Identifier
+    var identifier: PXIdentifier
     
     // Value
     // In some case, an item is attached to a value ( like midi control number )
     let value: Int?
     
-    let data: Any?
+    let object: Any?
     
     var isEnabled: Bool = true
     
     public var name: String { return context?.localizedLabel(for: identifier).name ?? identifier.rawValue }
     
-    init(identifier: Identifier,
-         in context: Context,
-         value: Int? = nil, data: Any? = nil,
+    init(identifier: PXIdentifier,
+         in context: PXContext,
+         value: Int? = nil,
+         object: Any? = nil,
          isEnabled: Bool = true) {
         self.identifier = identifier
         self.value = value
-        self.data = data
+        self.object = object
         self.isEnabled = isEnabled
         self.context = context
     }
     
-    static func == (lhs: Item, rhs: Item) -> Bool {
+    static func == (lhs: PXItem, rhs: PXItem) -> Bool {
         return lhs.identifier == rhs.identifier
     }
     
@@ -55,7 +56,7 @@ public class Item: Identifiable {
     
 }
 
-extension Item: Loggable {
+extension PXItem: Loggable {
     
     public var log: String {
         return "Item \(identifier.log)"

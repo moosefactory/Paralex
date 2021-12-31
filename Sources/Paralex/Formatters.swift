@@ -18,6 +18,8 @@ public extension Formatter {
     static var onOffFormatter = BoolFormatter(trueString: "On", falseString: "Off")
     static var onOffSymbolFormatter = BoolFormatter(trueString: "􀷄", falseString: "􀷃")
     static var yesNoFormatter = BoolFormatter(trueString: "Yes", falseString: "No")
+    static var offsetFormatter = OffsetFormatter()
+    static var multiplierFormatter = MultiplierFormatter()
 }
 
 public class IntFormatter: NumberFormatter {
@@ -43,6 +45,30 @@ public class RealFormatter: NumberFormatter {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+public class VoidFormatter: NumberFormatter {
+    
+    var voidString: String = "NIL"
+    
+    override public init() {
+        super.init()
+    }
+    
+    public init(voidString: String) {
+        self.voidString = voidString
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        voidString = String(coder.decodeObject(of: NSString.self, forKey: "voidString") ?? NSString("True"))
+        super.init(coder: coder)
+    }
+    
+    public override func string(for obj: Any?) -> String? {
+        return voidString
     }
 }
 
@@ -118,9 +144,9 @@ public class FactorFormatter: NumberFormatter {
 
 public class EnumerationFormatter: NumberFormatter {
     
-    public var items: [Item]
+    public var items: [PXItem]
     
-    public init(items: [Item]) {
+    public init(items: [PXItem]) {
         self.items = items
         super.init()
     }
@@ -161,11 +187,11 @@ public class OffsetFormatter: NumberFormatter {
     }
 }
 
-//class MultiplierFormatter: NumberFormatter {
-//    
-//    override func string(for obj: Any?) -> String? {
-//        let valueString = super.string(for: obj)
-//        return valueString
-//    }
-//}
+public class MultiplierFormatter: NumberFormatter {
+    
+    public override func string(for obj: Any?) -> String? {
+        let valueString = super.string(for: obj) ?? "1"
+        return "×\(valueString)"
+    }
+}
 

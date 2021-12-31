@@ -6,59 +6,28 @@
 /* MooseFactory Software                                                    */
 /*--------------------------------------------------------------------------*/
 
-//  Created by Tristan Leblanc on 14/12/2021.
+//  Created by Tristan Leblanc on 19/12/2021.
 
 import Foundation
 
-/// ParameterBase
+// MARK: - PXParameter
+
+/// PXParameter
 ///
-/// The base protocol for parameters and identifiers
+/// PXParameter is an observable object by itself.
 ///
-/// Identifiers and Parameters are both based on this protocol.
-///
-/// Identifiers use this information to:
-///     - Create the parameter
-///     - Give relevant informations to the UI, even if a parameter is not set yet
-///
-/// Parameters are first created from the identifier, and inherits of all properties values
-/// They can then be modified for special needs. A common case is the constraint modification.
-///
-/// ParameterBase constraints can be overiden by parameters.
+/// - An objectChange message is sent each time an impacting property is changed
+/// - The double value is a published value.
 
-public protocol ParameterBase {
+public class PXParameter : ObservableObject, Identifiable {
     
-    /// The constraint that will be set to the created parameter
+    public let uuid: UUID = UUID()
     
-    var constraint: Constraint? { get }
+    public let identifier: PXIdentifier
     
-    /// The type of parameter ( bool, int, double )
+    public var owner: PXGroup?
     
-    var type: ParameterType { get }
-}
-
-/// AnyParameter
-///
-/// The parameter protocol, used to pass or returns parameters to generic functions
-
-public protocol AnyParameter: AnyObject, ParameterBase, Identified {
-    
-    var context: PXContext? { get }
-    
-    /// Unique UUID
-    
-    var uuid: UUID { get }
-    
-    /// The parameter identifier
-
-    var identifier: Identifier { get }
-
-    /// The formatter to use to generate the formatted value
-
-    var formatter: Formatter? { get }
-    
-    /// The formatted value, to use in UI or logs
-
-    var formattedValue: String { get }
+    // MARK: Mutable Properties
     
     /// The double parameter value.
     /// All Paralex parameters values are double.
@@ -80,39 +49,82 @@ public protocol AnyParameter: AnyObject, ParameterBase, Identified {
     /// Int Param                :  |     0   􀬲  |     0     |     0     |     0     |     1  􀬲 |     1     |
     /// Double Value ( ∂ = 0.5 ) :  |    0.0  􀬲  |    0.0    |    0.5 􀬲 |    0.5    |    1.0 􀬲 |    1.0    |
     
-    var doubleValue: Double { get set }
+    @Published public var doubleValue: Double = 0
+    
+    public var constraint: PXConstraint? { didSet {
+        objectWillChange.send()
+    }}
+    
+    
+    public var formatter: Formatter? { didSet {
+        objectWillChange.send()
+    }}
+    
+    public var isActive: Bool { didSet {
+        objectWillChange.send()
+    }}
+    
+    // MARK: Private properties
+    
+    public var innerValue: Double
+    
+    public var context: PXContext? { owner?.context }
+    
+    // MARK: - Initialisation
+    
+    public init(_ identifier: PXIdentifier,
+                in group: PXGroup?,
+                doubleValue: Double? = nil,
+                constraint: PXConstraint? = nil,
+                formatter: Formatter? = nil) {
+        self.identifier = identifier
+        self.owner = group
+        innerValue = doubleValue ?? constraint?.defaultValue ?? 0
+        self.doubleValue = constraint?.apply(to: innerValue) ?? innerValue
+        // Use passed constraint, or default identifier constraint if nil
+        self.constraint = constraint ?? identifier.constraint
+        self.formatter = formatter
+        isActive = true
+        self.applyConstraint(setDefault: true)
+        group?.parameters.append(self)
+    }
 
-    /// The inner parameter value.
-    /// All Paralex parameters intrinsic values are double.
+    // MARK: - Loggable {
     
-    var innerValue: Double { get set }
+    /// log
+    ///
+    /// Returns the string to display in logs.
+    /// We don't override the description getter to keep the native representation ( Memory Address )
     
-    /// isActive
-    ///
-    /// A parameter can be active or not.
-    /// When inactive, the doubleValue is always 0. The innerValue is ignored
-    /// When active, the doubleValue is the inner value, constrained if any constraint is set.
-    ///
-    var isActive: Bool { get set }
+    public var log: String {
+        return "\(identifier.log)\t\(formattedValue)"
+    }
 }
 
-extension AnyParameter {
+extension PXParameter {    
     
     /// The integer value
     public var double: Double { get { doubleValue } set { doubleValue = newValue } }
-
+    
     /// The integer value
     public var int: Int { get { Int(doubleValue) } set { doubleValue = Double(newValue) } }
     
     /// The boolean value
     public var bool: Bool { get { doubleValue > 0 } set { doubleValue = newValue ? 1 : 0 } }
-
+    
+    public func offsetValue(by offset: Double) {
+        var newValue = doubleValue + offset
+        applyConstraint(to: &newValue)
+        print("Constrained : \(newValue)")
+        doubleValue = newValue
+    }
 }
 
-// MARK: - Constraint
 
-public extension AnyParameter {
+// MARK: - Constraints -
 
+public extension PXParameter {
+    
     /// applyConstraint
     ///
     /// Apply the constraint - pass setDefault to true when called from parameter init,
@@ -133,37 +145,8 @@ public extension AnyParameter {
             
         }
     }
-
+    
     func applyConstraint(setDefault: Bool = false) {
         applyConstraint(setDefault: setDefault, to: &doubleValue)
     }
 }
-
-// MARK: - Parameter Commons
-
-extension AnyParameter {
-
-    public var slug: String {
-        return identifier.rawValue
-    }
-
-    /// log
-    ///
-    /// Returns the string to display in logs.
-    /// We don't override the description getter to keep the native representation ( Memory Address )
-    
-    public var log: String {
-        return "\(identifier.log)\t\(formattedValue)"
-    }
-    
-    /// formattedValue
-    ///
-    /// Returns the value formatted by a standard Formatter object
-    
-    public var formattedValue: String {
-        let formatter: Formatter = formatter ?? type.defaultFormatter
-        return formatter.string(for: doubleValue) ?? "\(doubleValue)"
-    }
-}
-
-
