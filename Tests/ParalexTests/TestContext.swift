@@ -5,16 +5,14 @@
 //  Created by Tristan Leblanc on 10/12/2021.
 //
 
-import Foundation
-import AppKit
-
-import Paralex
+import XCTest
+@testable import Paralex
 
 var context: PXContext = PXContext(name: "TestMachine")
 
 extension PXIdentifier {
     
-    static let machine = PXIdentifier(rawValue: "machine", role: .label)
+    static let machine = group("machine")
     
     static let parameters = group("parameters")
     
@@ -39,21 +37,23 @@ struct TestFactory: PXFactory {
         nil
     }
     
-    func makeGroup(with identifier: PXIdentifier, in group: PXGroup? = nil) throws -> PXGroup {
-        let identifiers = try identifiersInGroup(with: identifier)
-        let group = try PXGroup(identifier: identifier, in: group, parameters: [])
-        
-        let parameters = try identifiers.makeParameters(in: group)
-        
-        return group
-    }
     
     func identifiersInGroup(with identifier: PXIdentifier) throws -> [PXIdentifier] {
-        if identifier == .machine {
+        switch identifier {
+        case .machine:
             return [
-                .exampleLabel, .exampleBool, .exampleInt, .exampleReal, .exampleConstrainedInt, .exampleConstrainedReal,
+                .parameters, .commands
+            ]
+        case .parameters:
+            return [
+                .exampleLabel, .exampleBool, .exampleInt, .exampleReal, .exampleConstrainedInt, .exampleConstrainedReal
+            ]
+        case .commands:
+            return [
                 .startCommand, .stopCommand
             ]
+        default:
+            return []
         }
         return []
     }
@@ -78,13 +78,32 @@ struct TestMachine: PXContainer {
         factory = TestFactory()
         
         do {
-            self.root = try factory.makeGroup(with: .machine, in: nil)
+            self.root = try factory.makeRoot(with: .machine)
         }
         catch {
             fatalError(error.localizedDescription)
         }
     }
+}
+
+final class TestFullMachine: XCTestCase {
     
+    func test_01_Machine() throws {
+        try testSection("3 - Test machine ( PXContainer )") {
+            
+            var machine = try TestMachine()
+            
+            print(machine.root.hierarchicalLog)
+            
+            let parameter = machine.parameter(with: "machine.parameters.myInt")
+            print("parameters.myInt = \(parameter)")
+            XCTAssert(parameter?.identifier == .exampleInt)
+        }
+    }
+}
+
+
+final class TestLabel: XCTestCase {
     
     func test_01_LabelInfo() throws {
         testSection("3 - Test identifier with label info") {

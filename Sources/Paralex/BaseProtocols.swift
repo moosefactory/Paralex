@@ -57,3 +57,9 @@ public extension Identified {
 public protocol Loggable {
     var log: String { get }
 }
+
+public extension Loggable {
+    func printLog() {
+        print(log)
+    }
+}

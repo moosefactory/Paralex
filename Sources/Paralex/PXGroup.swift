@@ -28,7 +28,7 @@ public class PXGroup: PXParameter {
     
     /// Sub groups
     public var subGroups: [PXGroup] {
-        return (parameters.filter({ $0.identifier.role == .group })) as! [PXGroup]
+        return (parameters.filter({ $0.identifier.role == .group })).compactMap({$0 as? PXGroup})
     }
 
     public var subParameters: [PXParameter] {
@@ -66,16 +66,25 @@ public class PXGroup: PXParameter {
     // MARK: - Loggable Protocol
    
     public override var log: String {
-        var out = [
-            "PXGroup \(identifier.log)",
-            "Params :"
-        ]
+        var params = subParameters
+        var groups = subGroups
+        var out = [String]()
+        out += params.map( {$0.log} )
+        out += groups.map( {$0.log} )
         
-        out += parameters.map( {$0.log} )
-        out += ["SubGroups:"]
-        out += subGroups.map( {$0.log} )
         return out.joined(separator: "\r")
     }
+
+    
+     public var hierarchicalLog: String {
+         var params = subParameters
+         var groups = subGroups
+         var out = [path]
+         out += params.map( { "\($0.path)\t\($0.formattedValue)" } )
+         out += groups.map( { $0.hierarchicalLog } )
+         
+         return out.joined(separator: "\r")
+     }
 
 }
 
@@ -84,8 +93,26 @@ public class PXGroup: PXParameter {
 
 public extension PXGroup {
     
+    func group(with identifier: PXIdentifier) -> PXGroup? {
+        return parameters[identifier] as? PXGroup
+    }
+    
+    func group(with path: String) -> PXGroup? {
+        return parameter(with: path) as? PXGroup
+    }
+    
+    func parameter(with identifier: PXIdentifier) -> PXParameter? {
+        return parameters[identifier]
+    }
+
     func parameter(with path: String) -> PXParameter? {
-        let components = path.split(separator: ".")
+        var components = path.split(separator: ".")
+        guard components.count > 0 else { return nil }
+        let first = String(components.first!)
+        if  first == identifier.rawValue {
+            components = components.suffix(components.count - 1)
+        }
+        guard components.count > 0 else { return nil }
         
         var searchNode: PXGroup = self
         
@@ -94,6 +121,8 @@ public extension PXGroup {
             switch node {
             case is PXGroup:
                 searchNode = node as! PXGroup
+            case is PXParameter:
+                return node
             default:
                 return nil
             }

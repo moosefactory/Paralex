@@ -5,9 +5,9 @@ func printSection(_ string: String) {
     print("\r------- \(string) ------\r\r")
 }
 
-func testSection(_ string: String, _ closure: @escaping ()->Void) {
+func testSection(_ string: String, _ closure: @escaping ( () throws -> Void)) rethrows {
     printSection(string)
-    closure()
+    try closure()
     print("\r-----------------------\r\r")
 }
 

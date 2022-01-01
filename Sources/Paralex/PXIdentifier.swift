@@ -79,6 +79,7 @@ public struct PXIdentifier: RawRepresentable, Hashable, ParameterBase {
         name ?? rawValue
     }
     
+    public var isGroup: Bool { return role == .group }
     /// log
     ///
     /// Returns the string to display in logs.

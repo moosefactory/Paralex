@@ -16,8 +16,9 @@ import Foundation
 
 public extension PXIdentifier {
     
-    func makeParameter(in group: PXGroup?) throws -> PXParameter {
-        if let group = group, role == .parameter {
+    func makeParameter(in group: PXGroup) throws -> PXParameter {
+        switch role {
+        case .parameter:
             switch self.type {
             case .bool:
                 return BoolParameter(self, in: group)
@@ -28,8 +29,16 @@ public extension PXIdentifier {
             default:
                 return VoidParameter(self, in: group)
             }
+        case .group:
+            return try PXGroup(identifier: self, in: group, parameters: [])
+        case .command:
+            return CommandParameter(self, in: group)
+        case .label:
+            return BoolParameter(self, in: group)
+        default:
+            return VoidParameter(self, in: group)
         }
-        return PXParameter(self, in: group, constraint: constraint)
+        
     }
 }
 
@@ -114,7 +123,6 @@ public class BoolParameter: PXParameter {
 
     public init(_ identifier: PXIdentifier,
                 in group: PXGroup,
-                type: PXParameterType = .bool,
                 value: DataType? = nil,
                 constraint: PXConstraint? = nil,
                 formatter: Formatter = BoolFormatter()) {
@@ -140,7 +148,28 @@ public class VoidParameter: PXParameter {
 
     public init(_ identifier: PXIdentifier,
                 in group: PXGroup,
-                type: PXParameterType = .void,
+                formatter: Formatter = BoolFormatter()) {
+        self.value = 0
+        super.init(identifier, in: group, doubleValue: 0)
+    }
+
+}
+
+
+/// VoidParameter
+///
+/// Wraps a boolean into a parameter
+
+public class CommandParameter: PXParameter {
+    
+    // MARK: Bool Value
+    
+    public typealias DataType = Int
+    
+    @Published public var value: DataType
+
+    public init(_ identifier: PXIdentifier,
+                in group: PXGroup,
                 formatter: Formatter = BoolFormatter()) {
         self.value = 0
         super.init(identifier, in: group, doubleValue: 0)

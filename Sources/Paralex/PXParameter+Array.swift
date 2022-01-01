@@ -49,8 +49,10 @@ extension Array where Element == PXParameter {
 extension Array where Element == PXIdentifier {
     /// makeParameters
     
-    public func makeParameters(in group: PXGroup?) throws -> [PXParameter] {
-        compactMap { try? $0.makeParameter(in: group) }
+    public func makeParameters(in group: PXGroup) throws -> [PXParameter] {
+        compactMap {
+            try? $0.makeParameter(in: group)
+        }
     }
     
 }

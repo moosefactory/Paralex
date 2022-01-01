@@ -9,6 +9,7 @@
 //  Created by Tristan Leblanc on 19/12/2021.
 
 import Foundation
+import SwiftUI
 
 // MARK: - PXParameter
 
@@ -86,6 +87,7 @@ public class PXParameter : ObservableObject, Identifiable {
         self.formatter = formatter
         isActive = true
         self.applyConstraint(setDefault: true)
+        
         group?.parameters.append(self)
     }
 

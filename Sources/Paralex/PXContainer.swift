@@ -24,7 +24,7 @@ import Foundation
 /// Note that all functions are throwing - We must stay in control.
 /// We shall not call them with 'random' identifiers. If an identifier is unknown by your system, it must fail.
 
-public protocol PXContainer {
+public protocol PXContainer: Loggable {
     
     /// context
     ///
@@ -38,6 +38,10 @@ public protocol PXContainer {
     
 }
 
+public extension PXContainer {
+    var log: String { root.log }
+}
+
 extension PXContainer {
     
     
@@ -45,7 +49,7 @@ extension PXContainer {
         return PXParameter(identifier, in: group)
     }
 
-    public func makeGroup(_ identifier: PXIdentifier, in group: PXGroup?) throws -> PXGroup? {
+    public func makeGroup(_ identifier: PXIdentifier, in group: PXGroup?) throws -> PXGroup {
         try factory.makeGroup(with: identifier, in: group)
     }
 }
@@ -56,10 +60,10 @@ extension PXContainer {
 extension PXContainer {
     
     public func group(with path: String) -> PXGroup? {
-        root.parameter(with: path) as? PXGroup
+        root.group(with: path)
     }
     
-    public func parameterNode(with path: String) -> PXParameter? {
+    public func parameter(with path: String) -> PXParameter? {
         root.parameter(with: path)
     }
 }
