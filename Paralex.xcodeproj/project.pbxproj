@@ -73,6 +73,7 @@
 		BCA736C6277E61DC00935045 /* PXContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXContext.swift; sourceTree = "<group>"; };
 		BCA736DE277F1A9500935045 /* PXParameter+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PXParameter+Array.swift"; sourceTree = "<group>"; };
 		BCA736E0277F586400935045 /* PXFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXFactory.swift; sourceTree = "<group>"; };
+		BCA737282781A31E00935045 /* Paralex.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Paralex.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				BC00505D2776238D00CA0583 /* LICENSE */,
+				BCA737282781A31E00935045 /* Paralex.podspec */,
 				BC00506D2776238D00CA0583 /* Package.swift */,
 				BC00506E2776238E00CA0583 /* README.md */,
 				BC005128277BBCC400CA0583 /* Sources */,

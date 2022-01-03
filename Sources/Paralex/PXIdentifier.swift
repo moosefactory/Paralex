@@ -63,7 +63,11 @@ public struct PXIdentifier: RawRepresentable, Hashable, ParameterBase {
         self.role = .label
         self.type = .void
     }
-    
+
+    public init(_ raw: String) {
+        self.init(rawValue: raw)
+    }
+
     public init(rawValue: String,
                 role: IdentifierRole = .label,
                 type: PXParameterType = .void,
@@ -167,8 +171,8 @@ extension Array where Element == PXIdentifier {
 }
 
 
-//extension Parameter {
-//    func makeParameter(in context: PXContext) -> Parameter {
+//extension PXParameter {
+//    func makeParameter(in context: PXContext) -> PXParameter {
 //        return identifier.make
 //    }
 //}

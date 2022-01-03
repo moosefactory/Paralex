@@ -20,7 +20,7 @@ import SwiftUI
 /// - An objectChange message is sent each time an impacting property is changed
 /// - The double value is a published value.
 
-public class PXParameter : ObservableObject, Identifiable {
+open class PXParameter : ObservableObject, Identifiable {
     
     public let uuid: UUID = UUID()
     

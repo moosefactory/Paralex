@@ -16,7 +16,7 @@ import Foundation
 
 public extension PXIdentifier {
     
-    func makeParameter(in group: PXGroup) throws -> PXParameter {
+    @discardableResult func makeParameter(in group: PXGroup) throws -> PXParameter {
         switch role {
         case .parameter:
             switch self.type {
@@ -38,7 +38,6 @@ public extension PXIdentifier {
         default:
             return VoidParameter(self, in: group)
         }
-        
     }
 }
 

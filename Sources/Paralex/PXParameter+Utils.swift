@@ -31,6 +31,22 @@ extension PXParameter {
         let formatter: Formatter = formatter ?? type.defaultFormatter
         return formatter.string(for: doubleValue) ?? "\(doubleValue)"
     }
+    
+    public var granularity: Double? {
+        constraint?.granularity
+    }
+
+    public var min: Double? {
+        return constraint?.doubleMin
+    }
+    
+    public var max: Double? {
+        return constraint?.doubleMax
+    }
+    
+    public var defaultValue: Double? {
+        return constraint?.defaultValue
+    }
 }
 
 

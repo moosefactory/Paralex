@@ -32,7 +32,12 @@ public protocol PXContainer: Loggable {
     /// It is also responsible of returning symbols
     var context: PXContext { get set }
     
-    var factory: PXFactory { get set }
+    /// factory
+    ///
+    /// An optional factory that can returns sub identifiers, constraints and groups for given identifiers
+    /// This is an option to create parameters
+
+    var factory: PXFactory? { get set }
     
     var root: PXGroup { get set }
     
@@ -41,19 +46,6 @@ public protocol PXContainer: Loggable {
 public extension PXContainer {
     var log: String { root.log }
 }
-
-extension PXContainer {
-    
-    
-    public func makeParameter(_ identifier: PXIdentifier, in group: PXGroup) throws -> PXParameter {
-        return PXParameter(identifier, in: group)
-    }
-
-    public func makeGroup(_ identifier: PXIdentifier, in group: PXGroup?) throws -> PXGroup {
-        try factory.makeGroup(with: identifier, in: group)
-    }
-}
-
 
 // MARK: - Search in tree
 

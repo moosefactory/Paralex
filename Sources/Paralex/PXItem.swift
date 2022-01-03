@@ -16,25 +16,25 @@ import Foundation
 /// It conforms to the Identifier prototcol, so it can be loaded/localized/displayed as any identifier
 ///
 /// It adds an optionnal reference to any external object
-///
-public class PXItem: Identifiable {
+
+open class PXItem: Identifiable, Hashable {
     
     var context: PXContext?
     
     // Unique string identifier
-    var identifier: PXIdentifier
+    public var identifier: PXIdentifier
     
     // Value
-    // In some case, an item is attached to a value ( like midi control number )
-    let value: Int?
+    // In some case, an item is attached to a value
+    public var value: Int?
     
-    let object: Any?
+    public var object: Any?
     
-    var isEnabled: Bool = true
+    public var isEnabled: Bool = true
     
     public var name: String { return context?.localizedLabel(for: identifier).name ?? identifier.rawValue }
     
-    init(identifier: PXIdentifier,
+    public init(identifier: PXIdentifier,
          in context: PXContext,
          value: Int? = nil,
          object: Any? = nil,
@@ -46,11 +46,11 @@ public class PXItem: Identifiable {
         self.context = context
     }
     
-    static func == (lhs: PXItem, rhs: PXItem) -> Bool {
+    public static func == (lhs: PXItem, rhs: PXItem) -> Bool {
         return lhs.identifier == rhs.identifier
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(identifier)
     }
     
