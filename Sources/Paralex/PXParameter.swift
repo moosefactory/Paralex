@@ -56,7 +56,6 @@ open class PXParameter : ObservableObject, Identifiable {
         objectWillChange.send()
     }}
     
-    
     public var formatter: Formatter? { didSet {
         objectWillChange.send()
     }}
@@ -73,7 +72,7 @@ open class PXParameter : ObservableObject, Identifiable {
     
     // MARK: - Initialisation
     
-    public init(_ identifier: PXIdentifier,
+    @discardableResult public init(_ identifier: PXIdentifier,
                 in group: PXGroup?,
                 doubleValue: Double? = nil,
                 constraint: PXConstraint? = nil,

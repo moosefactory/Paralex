@@ -48,7 +48,7 @@ open class PXGroup: PXParameter {
         closure(parameter)
     }
     
-    public override var context: PXContext? { return _context ?? owner?.context }
+    open override var context: PXContext? { return _context ?? owner?.context }
     
     var _context: PXContext?
     

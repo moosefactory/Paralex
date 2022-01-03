@@ -28,6 +28,10 @@ extension PXParameter {
     /// Returns the value formatted by a standard Formatter object
     
     public var formattedValue: String {
+        if let itemIdentifier = identifier.labelIdentifierForValue?(doubleValue),
+           let label = context?.localizedLabel(for: itemIdentifier) {
+            return label.symbol ?? label.name
+        }
         let formatter: Formatter = formatter ?? type.defaultFormatter
         return formatter.string(for: doubleValue) ?? "\(doubleValue)"
     }
@@ -63,23 +67,28 @@ extension PXParameter {
     }
 
     public var name: String {
-        context?.name(for: identifier) ?? identifier.rawValue
+        let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
+        return context?.name(for: identifier) ?? identifier.rawValue
     }
     
     public var shortName: String {
-        context?.shortName(for: identifier) ?? name
+        let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
+        return context?.shortName(for: identifier) ?? name
     }
     
     public var abbreviation: String {
-        context?.abbreviation(for: identifier) ?? shortName
+        let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
+        return context?.abbreviation(for: identifier) ?? shortName
     }
     
     public var symbols: String? {
-        context?.symbols(for: identifier)
+        let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
+        return context?.symbols(for: identifier)
     }
     
     public var symbol: String? {
-        context?.symbol(for: identifier)
+        let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
+        return context?.symbol(for: identifier)
     }
 }
 

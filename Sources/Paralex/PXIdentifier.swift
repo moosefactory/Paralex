@@ -83,6 +83,11 @@ public struct PXIdentifier: RawRepresentable, Hashable, ParameterBase {
         name ?? rawValue
     }
     
+    /// labelIdentifierForValue
+    ///
+    /// An optionnal closure that returns an identifier in formatted value
+    public var labelIdentifierForValue: ((Double)->PXIdentifier)?
+    
     public var isGroup: Bool { return role == .group }
     /// log
     ///
