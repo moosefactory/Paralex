@@ -46,6 +46,7 @@ public struct PXLabel: Loggable {
     
     
     public var symbols: String?
+    public var symbolNames: [String]?
     
     public var symbolIndex: Int = 0
     
@@ -53,17 +54,19 @@ public struct PXLabel: Loggable {
     ///
     /// privacy of init guarantees the slug match with the identifier
     public init(slug: String,
-         name: String,
-         shortName: String? = nil,
-         abbreviation: String? = nil,
-         symbols: String? = nil,
-         symbolIndex: Int = 0) {
+                name: String,
+                shortName: String? = nil,
+                abbreviation: String? = nil,
+                symbols: String? = nil,
+                symbolNames: [String]? = nil,
+                symbolIndex: Int = 0) {
         self.slug = slug
         self.name = name
         self.shortName = shortName ?? self.name
         self.abbreviation = abbreviation ?? self.shortName
         self.symbols = symbols
-        self.symbolIndex = min(symbolIndex, (symbols?.count ?? 0) - 1)
+        self.symbolNames = symbolNames
+        self.symbolIndex = min(symbolIndex, (symbolNames?.count ?? 0) - 1)
     }
     
     
@@ -77,7 +80,18 @@ public struct PXLabel: Loggable {
         let stringIndex = symbols.index(symbols.startIndex, offsetBy: index)
         return String(symbols[stringIndex])
     }
-
+    
+    /// symbolName
+    ///
+    /// Returns the symbol name at current symbol index or nil if symbols is not set.
+    /// Used instead of symbol on iOS, to use in image
+    
+    public var symbolName: String? {
+        guard let symbols = symbolNames, !symbols.isEmpty, symbolIndex >= 0 else { return nil }
+        let index = min(symbolIndex, symbols.count - 1)
+        return symbols[index]
+    }
+    
     public var log: String {
         let components = [slug, name, shortName, abbreviation, symbols ?? "", symbol ?? ""]
         return components.joined(separator: "\t")

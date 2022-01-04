@@ -81,15 +81,28 @@ extension PXParameter {
         return context?.abbreviation(for: identifier) ?? shortName
     }
     
-    public var symbols: String? {
-        let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
-        return context?.symbols(for: identifier)
-    }
-    
+    #if os(macOS)
     public var symbol: String? {
         let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
         return context?.symbol(for: identifier)
     }
+    
+    public var symbols: String? {
+        let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
+        return context?.symbols(for: identifier)
+    }
+    #endif
+    
+    public var symbolName: String? {
+        let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
+        return context?.symbolName(for: identifier)
+    }
+        
+    public var symbolNames: [String]? {
+        let identifier = identifier.labelIdentifierForValue?(doubleValue) ?? identifier
+        return context?.symbolNames(for: identifier)
+    }
+
 }
 
 /// Crawl parameters hierarchy
