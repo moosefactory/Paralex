@@ -110,6 +110,12 @@ extension PXParameter {
     /// The integer value
     public var int: Int { get { Int(doubleValue) } set { doubleValue = Double(newValue) } }
     
+    /// The UInt value
+    public var uint: UInt { get { UInt(doubleValue) } set { doubleValue = Double(newValue) } }
+
+    /// The UInt8 value
+    public var uint8: UInt8 { get { UInt8(doubleValue) } set { doubleValue = Double(newValue) } }
+
     /// The boolean value
     public var bool: Bool { get { doubleValue > 0 } set { doubleValue = newValue ? 1 : 0 } }
     

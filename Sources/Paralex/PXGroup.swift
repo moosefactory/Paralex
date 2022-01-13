@@ -84,8 +84,8 @@ open class PXGroup: PXParameter {
     
     
     public var hierarchicalLog: String {
-        var params = subParameters
-        var groups = subGroups
+        let params = subParameters
+        let groups = subGroups
         var out = [path]
         out += params.map( { "\($0.path)\t\($0.formattedValue)" } )
         out += groups.map( { $0.hierarchicalLog } )
@@ -128,10 +128,8 @@ public extension PXGroup {
             switch node {
             case is PXGroup:
                 searchNode = node as! PXGroup
-            case is PXParameter:
-                return node
             default:
-                return nil
+                return node
             }
         }
         return searchNode

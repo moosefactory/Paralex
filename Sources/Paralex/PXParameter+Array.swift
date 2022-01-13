@@ -29,7 +29,7 @@ extension Array where Element == PXParameter {
     }
     
     public func with(identifier: PXIdentifier, do: @escaping (PXParameter)->Void) {
-        guard let parameter = first(where: {$0.identifier == identifier}) else { return }
+        guard let parameter = with(identifier: identifier) else { return }
         `do`(parameter)
     }
     
