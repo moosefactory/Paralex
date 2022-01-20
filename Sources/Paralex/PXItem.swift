@@ -32,14 +32,18 @@ open class PXItem: Identifiable, Hashable {
     
     public var isEnabled: Bool = true
     
-    public var name: String { return context?.localizedLabel(for: identifier).name ?? identifier.rawValue }
+    public var name: String { return _name ?? context?.localizedLabel(for: identifier).name ?? identifier.rawValue }
+    
+    public var _name: String?
     
     public init(identifier: PXIdentifier,
+                name: String? = nil,
          in context: PXContext,
          value: Int? = nil,
          object: Any? = nil,
          isEnabled: Bool = true) {
         self.identifier = identifier
+        self._name = name
         self.value = value
         self.object = object
         self.isEnabled = isEnabled

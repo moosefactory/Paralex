@@ -7,6 +7,18 @@
 
 import Foundation
 
+public protocol ExpressibleAsIdentifier {
+    var identifier: PXIdentifier { get }
+}
+
+public extension Array where Element == ExpressibleAsIdentifier {
+    
+    var identifiers: [PXIdentifier] {
+        self.map { $0.identifier}
+    }
+    
+}
+
 // MARK: - Parameters Factory
 
 public extension PXIdentifier {
@@ -54,25 +66,25 @@ public extension PXIdentifier {
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
     
-    static func int7(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func uint7(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
         let defaultValue = max(min(127, defaultValue), 0)
         let constraint = PXConstraint(doubleMin: 0, doubleMax: 127, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
     
-    static func signedInt7(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func int7(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
         let defaultValue = max(min(64, defaultValue), -64)
         let constraint = PXConstraint(doubleMin: -63, doubleMax: 64, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
 
-    static func int8(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func uint8(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
         let defaultValue = max(min(255, defaultValue), 0)
         let constraint = PXConstraint(doubleMin: 0, doubleMax: 255, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
 
-    static func signedInt8(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func int8(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
         let defaultValue = max(min(128, defaultValue), -127)
         let constraint = PXConstraint(doubleMin: -127, doubleMax: 128, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
@@ -100,6 +112,12 @@ public extension PXIdentifier {
         percent(identifier, granularity: granularity, positive: false, defaultValue: defaultValue ?? 0)
     }
 
+    static func unsignedPercent(_ identifier: String,
+                                 granularity: Double = 0.01,
+                                 defaultValue: Int? = nil) -> PXIdentifier {
+        percent(identifier, granularity: granularity, positive: true, defaultValue: defaultValue ?? 0)
+    }
+
     static func double(_ identifier: String, constraint: PXConstraint) -> PXIdentifier {
         PXIdentifier(rawValue: identifier, role: .parameter, type: .double, constraint: constraint)
     }
@@ -115,13 +133,14 @@ public extension PXIdentifier {
     /// for now - there is strictly no responsibility at this level for items definition.
     /// This simply ensure the created identifier has the right size of items.
     
-    static func table(_ identifier: String, array: Array<Any>,
-                      itemIdentifiers: [PXIdentifier],
+    static func table(_ identifier: String, array: Array<ExpressibleAsIdentifier>,
+                      itemIdentifiers: [PXIdentifier]? = nil,
                       defaultIndex: Int = 0) -> PXIdentifier {
         let maxValue = Double(array.count - 1)
         let defaultValue = max(min(maxValue, Double(defaultIndex)),0)
         let constraint = PXConstraint(doubleMin: 0, doubleMax: maxValue, granularity: 1, defaultValue: Double(defaultValue))
         var identifier = PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
+        let itemIdentifiers = itemIdentifiers ?? array.compactMap({PXIdentifier.label(($0.identifier).rawValue)})
         identifier.labelIdentifierForValue = { value in
             let maxIndex = itemIdentifiers.count - 1
             let index = max(min(maxIndex, Int(value)),0)

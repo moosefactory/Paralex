@@ -28,7 +28,11 @@ import Foundation
 /// - PXIdentifiers can be used to define various parameters. For exemple a "intensity" identifier could be used
 ///   to add an intensity parameter to various groups.
 
-public struct PXIdentifier: RawRepresentable, Hashable, ParameterBase {
+public struct PXIdentifier: RawRepresentable, Hashable, Equatable, ParameterBase {
+    
+    public static func == (lhs: PXIdentifier, rhs: PXIdentifier) -> Bool {
+        lhs.rawValue == rhs.rawValue
+    }
     
     public var id = UUID()
     
