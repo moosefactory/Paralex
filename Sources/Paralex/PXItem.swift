@@ -38,7 +38,7 @@ open class PXItem: Identifiable, Hashable {
     
     public init(identifier: PXIdentifier,
                 name: String? = nil,
-         in context: PXContext,
+         in context: PXContext? = nil,
          value: Int? = nil,
          object: Any? = nil,
          isEnabled: Bool = true) {

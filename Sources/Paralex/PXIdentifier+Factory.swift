@@ -26,9 +26,11 @@ public extension PXIdentifier {
     /// command
     ///
     /// Creates a command identifier
-    /// If no name is passed, the raw value is used
+    ///
+    /// A context can be passed to register parameter identifier in a list and load localized names and symbols
     
-    static func command(_ identifier: String) -> PXIdentifier {
+    static func command(_ identifier: String,
+                        context: PXContext? = nil) -> PXIdentifier {
         PXIdentifier(rawValue: identifier, role: .command, type: .void)
     }
     
@@ -37,60 +39,82 @@ public extension PXIdentifier {
     /// Creates a parameter identifier
     /// If no name is passed, the identifier raw value is used
     
-    static func parameter(_ identifier: String, type: PXParameterType, constraint: PXConstraint? = nil) -> PXIdentifier {
+    static func parameter(_ identifier: String,
+                          type: PXParameterType,
+                          constraint: PXConstraint? = nil,
+                          context: PXContext? = nil) -> PXIdentifier {
         PXIdentifier(rawValue: identifier, role: .parameter, type: type, constraint: constraint)
     }
     
     
-    static func bool(_ identifier: String) -> PXIdentifier {
+    static func bool(_ identifier: String,
+                     context: PXContext? = nil) -> PXIdentifier {
         PXIdentifier(rawValue: identifier, role: .parameter, type: .bool)
     }
     
-    static func int(_ identifier: String, constraint: PXConstraint?) -> PXIdentifier {
+    static func int(_ identifier: String,
+                    constraint: PXConstraint?,
+                    context: PXContext? = nil) -> PXIdentifier {
         PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
     
-    static func unsignedInt(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func unsignedInt(_ identifier: String,
+                            defaultValue: Int = 0,
+                            context: PXContext? = nil) -> PXIdentifier {
         let constraint = PXConstraint(doubleMin: 0, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
     
-    static func int(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func int(_ identifier: String,
+                    defaultValue: Int = 0,
+                    context: PXContext? = nil) -> PXIdentifier {
         let constraint = PXConstraint(granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
 
-    static func int4(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func int4(_ identifier: String,
+                     defaultValue: Int = 0,
+                     context: PXContext? = nil) -> PXIdentifier {
         let defaultValue = max(min(15, defaultValue), 0)
         let constraint = PXConstraint(doubleMin: 0, doubleMax: 15, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
     
-    static func uint7(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func uint7(_ identifier: String,
+                      defaultValue: Int = 0,
+                      context: PXContext? = nil) -> PXIdentifier {
         let defaultValue = max(min(127, defaultValue), 0)
         let constraint = PXConstraint(doubleMin: 0, doubleMax: 127, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
     
-    static func int7(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func int7(_ identifier: String,
+                     defaultValue: Int = 0,
+                     context: PXContext? = nil) -> PXIdentifier {
         let defaultValue = max(min(64, defaultValue), -64)
         let constraint = PXConstraint(doubleMin: -63, doubleMax: 64, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
 
-    static func uint8(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func uint8(_ identifier: String,
+                      defaultValue: Int = 0,
+                      context: PXContext? = nil) -> PXIdentifier {
         let defaultValue = max(min(255, defaultValue), 0)
         let constraint = PXConstraint(doubleMin: 0, doubleMax: 255, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
 
-    static func int8(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func int8(_ identifier: String,
+                     defaultValue: Int = 0,
+                     context: PXContext? = nil) -> PXIdentifier {
         let defaultValue = max(min(128, defaultValue), -127)
         let constraint = PXConstraint(doubleMin: -127, doubleMax: 128, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
     }
 
-    static func int16(_ identifier: String, defaultValue: Int = 0) -> PXIdentifier {
+    static func int16(_ identifier: String,
+                      defaultValue: Int = 0,
+                      context: PXContext? = nil) -> PXIdentifier {
         let defaultValue = max(min(65535, defaultValue),0)
         let constraint = PXConstraint(doubleMin: 0, doubleMax: 65535, granularity: 1, defaultValue: Double(defaultValue))
         return PXIdentifier(rawValue: identifier, role: .parameter, type: .int, constraint: constraint)
@@ -133,7 +157,7 @@ public extension PXIdentifier {
     /// for now - there is strictly no responsibility at this level for items definition.
     /// This simply ensure the created identifier has the right size of items.
     
-    static func table(_ identifier: String, array: Array<ExpressibleAsIdentifier>,
+    static func table(_ identifier: String, array: Array<ExpressibleAsIdentifier> = [],
                       itemIdentifiers: [PXIdentifier]? = nil,
                       defaultIndex: Int = 0) -> PXIdentifier {
         let maxValue = Double(array.count - 1)

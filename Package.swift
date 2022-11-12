@@ -26,9 +26,7 @@ let package = Package(
         .target(
             name: "Paralex",
             dependencies: [],
-            resources: [
-                .process("Resources")
-            ]),
+            resources: []),
         .testTarget(
             name: "ParalexTests",
             dependencies: ["Paralex"],

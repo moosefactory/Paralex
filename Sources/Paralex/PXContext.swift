@@ -20,7 +20,7 @@ import AppKit
 ///
 /// PXContext is simple object that manage the localizations
 
-open class PXContext {
+open class PXContext: ObservableObject {
     
     public enum Err: String, Error {
         case notAGroupIdentifier = "notAGroupIdentifier"

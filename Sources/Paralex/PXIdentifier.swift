@@ -62,24 +62,35 @@ public struct PXIdentifier: RawRepresentable, Hashable, Equatable, ParameterBase
     
     public var symbols: String?
 
+    public weak var context: PXContext?
+    
     public init(rawValue: String) {
         self.rawValue = rawValue
         self.role = .label
         self.type = .void
     }
 
-    public init(_ raw: String) {
-        self.init(rawValue: raw)
+    public init(rawValue: String, context: PXContext? = nil) {
+        self.rawValue = rawValue
+        self.role = .label
+        self.type = .void
+        self.context = context
+    }
+
+    public init(_ raw: String, context: PXContext? = nil) {
+        self.init(rawValue: raw, context: context)
     }
 
     public init(rawValue: String,
                 role: IdentifierRole = .label,
                 type: PXParameterType = .void,
-                constraint: PXConstraint? = nil) {
+                constraint: PXConstraint? = nil,
+                context: PXContext? = nil) {
         self.rawValue = rawValue
         self.role = role
         self.type = type
         self.constraint = constraint
+        self.context = context
     }
     
     // Returns the name to display - this should be managed by context, but we let it as is for now for backward compatibility

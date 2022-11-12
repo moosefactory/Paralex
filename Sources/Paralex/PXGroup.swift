@@ -24,7 +24,7 @@ import Foundation
 open class PXGroup: PXParameter {
     
     /// Sub parameters
-    public var parameters: [PXParameter]
+    open var parameters: [PXParameter]
     
     /// Sub groups
     public var subGroups: [PXGroup] {
@@ -39,7 +39,7 @@ open class PXGroup: PXParameter {
     
     public var identifiers: [PXIdentifier] { parameters.map {$0.identifier} }
     
-    public subscript(identifier: PXIdentifier) -> PXParameter? {
+    open subscript(identifier: PXIdentifier) -> PXParameter? {
         return parameters.first(where: {$0.identifier == identifier} )
     }
     

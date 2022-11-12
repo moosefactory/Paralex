@@ -40,11 +40,11 @@ extension PXParameter {
         constraint?.granularity
     }
 
-    public var min: Double? {
+    public var minimum: Double? {
         return constraint?.doubleMin
     }
     
-    public var max: Double? {
+    public var maximum: Double? {
         return constraint?.doubleMax
     }
     

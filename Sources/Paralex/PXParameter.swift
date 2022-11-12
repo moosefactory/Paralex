@@ -52,6 +52,8 @@ open class PXParameter : ObservableObject, Identifiable {
     
     @Published public var doubleValue: Double = 0
     
+    public var valueDidChangeClosure: ((PXParameter)->Void)?
+    
     public var constraint: PXConstraint? { didSet {
         objectWillChange.send()
     }}
@@ -76,8 +78,10 @@ open class PXParameter : ObservableObject, Identifiable {
                 in group: PXGroup?,
                 doubleValue: Double? = nil,
                 constraint: PXConstraint? = nil,
-                formatter: Formatter? = nil) {
+                formatter: Formatter? = nil,
+                                   valueDidChangeClosure: ((PXParameter)->Void)? = nil) {
         self.identifier = identifier
+        self.valueDidChangeClosure = valueDidChangeClosure
         self.owner = group
         innerValue = doubleValue ?? constraint?.defaultValue ?? 0
         self.doubleValue = constraint?.apply(to: innerValue) ?? innerValue
@@ -151,6 +155,25 @@ public extension PXParameter {
         if let granularity = constraint.granularity, granularity > 0 {
             
         }
+    }
+
+    func byApplyingConstraint(setDefault: Bool = false, to value: Double) -> Double {
+        var value = value
+        guard let constraint = constraint else { return value }
+        
+        if setDefault, let defaultValue = constraint.defaultValue {
+            value = defaultValue
+        }
+        if let min = constraint.doubleMin, value < min {
+            value = min
+        }
+        if let max = constraint.doubleMax, value > max {
+            value = max
+        }
+        if let granularity = constraint.granularity, granularity > 0 {
+            
+        }
+        return value
     }
     
     func applyConstraint(setDefault: Bool = false) {
