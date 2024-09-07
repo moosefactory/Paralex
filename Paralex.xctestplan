@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "F4D0AC36-B34F-4B91-BAEC-4019D5924F58",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Paralex.xcodeproj",
+        "identifier" : "BC00504C2776204C00CA0583",
+        "name" : "ParalexTests"
+      }
+    }
+  ],
+  "version" : 1
+}

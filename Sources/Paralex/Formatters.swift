@@ -22,7 +22,7 @@ public extension Formatter {
     static var multiplierFormatter = MultiplierFormatter()
 }
 
-public class IntFormatter: NumberFormatter {
+public class IntFormatter: NumberFormatter, @unchecked Sendable {
     
     public override init() {
         super.init()
@@ -35,7 +35,7 @@ public class IntFormatter: NumberFormatter {
 }
 
 
-public class RealFormatter: NumberFormatter {
+public class RealFormatter: NumberFormatter, @unchecked Sendable {
     
     public override init() {
         super.init()
@@ -49,7 +49,7 @@ public class RealFormatter: NumberFormatter {
 }
 
 
-public class VoidFormatter: NumberFormatter {
+public class VoidFormatter: NumberFormatter, @unchecked Sendable {
     
     var voidString: String = "NIL"
     
@@ -72,7 +72,7 @@ public class VoidFormatter: NumberFormatter {
     }
 }
 
-public class BoolFormatter: NumberFormatter {
+public class BoolFormatter: NumberFormatter, @unchecked Sendable {
     
     var trueString: String
     var falseString: String
@@ -104,7 +104,7 @@ public class BoolFormatter: NumberFormatter {
     }
 }
 
-public class PercentFormatter: NumberFormatter {
+public class PercentFormatter: NumberFormatter, @unchecked Sendable {
     
     public override init() {
         super.init()
@@ -117,7 +117,7 @@ public class PercentFormatter: NumberFormatter {
     }
 }
 
-public class FactorFormatter: NumberFormatter {
+public class FactorFormatter: NumberFormatter, @unchecked Sendable {
     
     public override init() {
         super.init()
@@ -142,7 +142,7 @@ public class FactorFormatter: NumberFormatter {
     }
 }
 
-public class EnumerationFormatter: NumberFormatter {
+public class EnumerationFormatter: NumberFormatter, @unchecked Sendable {
     
     public var items: [PXItem]
     
@@ -177,7 +177,7 @@ public class EnumerationFormatter: NumberFormatter {
     
 }
 
-public class OffsetFormatter: NumberFormatter {
+public class OffsetFormatter: NumberFormatter, @unchecked Sendable {
     public override func string(for obj: Any?) -> String? {
         guard let value = obj as? Double, !value.isNaN, value != 0 else {
             return "-"
@@ -187,7 +187,7 @@ public class OffsetFormatter: NumberFormatter {
     }
 }
 
-public class MultiplierFormatter: NumberFormatter {
+public class MultiplierFormatter: NumberFormatter, @unchecked Sendable {
     
     public override func string(for obj: Any?) -> String? {
         let valueString = super.string(for: obj) ?? "1"
